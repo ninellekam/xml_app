@@ -1,11 +1,11 @@
 #include "../inc/gopro.h"
 
 void    Gopro::adddprtmnt(std::string name){
-    Command *com;
-    Adddep add(name);
-    com = &add;
-    com->redo();
-    Do_Com.push_back(com);
+    cout << "ok";
+    c = new Adddep(name);
+    c->set_company(&com);
+    c->redo();
+    Do_Com.push_back(c);
 }
 void    Gopro::addwrkr(std::string depn,std::string s,
 std::string f,

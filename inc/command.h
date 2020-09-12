@@ -6,11 +6,14 @@
 #include <map>
 #include "../inc/company.h"
 
+
 class Command {
     public:
         Company *comp;
-    virtual void redo();
-    virtual void undo();
+    virtual ~Command() {}
+    virtual void redo() = 0;
+    virtual void undo() = 0;
+    void    set_company(Company *c);
 };
 class Adddep : public Command {
     public:

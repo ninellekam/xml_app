@@ -10,8 +10,8 @@ class Company {
 
 public:
     map<std::string, Department> dpts;
-    Company();
-    ~Company();
+    Company(){};
+    ~Company(){};
 void    set_comp(const Company &c);
 void    go_department(std::string name, Department &d);
 void    add_department(std::string name);

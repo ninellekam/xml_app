@@ -1,5 +1,8 @@
 #include "../inc/command.h" 
 
+void    Command::set_company(Company *c){
+        comp = c;
+}
 Adddep::Adddep(std::string n) {name = n;}
 void Adddep::redo() {
         comp->add_department(name);

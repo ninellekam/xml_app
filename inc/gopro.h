@@ -6,6 +6,8 @@ class Gopro {
 public:
     vector <Command *> Do_Com; // redo
     vector <Command *> No_Com; // undo
+    Command *c;
+    Company com;
     void    adddprtmnt(std::string name);
     void    addwrkr(std::string depn,std::string s,
                                     std::string f,
