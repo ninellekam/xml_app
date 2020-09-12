@@ -1,8 +1,8 @@
 #include <iostream>
-#include "inc/tinyxml2.h"
+#include "../inc/tinyxml2.h"
 using namespace std;
 using namespace tinyxml2;
-#include "gopro.h"
+#include "../inc/gopro.h"
 
 
 int fxml()

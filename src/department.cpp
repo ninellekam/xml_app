@@ -1,4 +1,4 @@
-#include "department.h"
+#include "../inc/department.h"
 
 int     Department::getCountWorkers() {
       return countWorkers;

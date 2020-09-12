@@ -1,4 +1,4 @@
-#include "gopro.h"
+#include "../inc/gopro.h"
 
 void    Gopro::adddprtmnt(std::string name){
     Command *com;

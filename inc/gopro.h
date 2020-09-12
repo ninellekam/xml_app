@@ -1,7 +1,6 @@
-#pragma once
 #ifndef GOPRO_H
 #define GOPRO_H
-#include "command.h"
+#include "../inc/command.h"
 class Gopro {
 
 public:

@@ -1,4 +1,4 @@
-#include "company.h"
+#include "../inc/company.h"
 
 void    Company::add_worker(std::string depn,std::string s,
                                              std::string f,

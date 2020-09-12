@@ -1,10 +1,10 @@
-#pragma once
+
 #ifndef COMPANY_H
 #define COMPANY_H
 #include <iostream>
 #include <vector>
 #include <map>
-#include "department.h"
+#include "../inc/department.h"
 
 class Company {
 

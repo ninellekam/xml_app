@@ -1,10 +1,10 @@
-#pragma once
+
 #ifndef DEFINE_H
 #define DEFINE_H
 #include <iostream>
 #include <vector>
 #include <map>
-#include "worker.h"
+#include "../inc/worker.h"
 
 using namespace std;
 
