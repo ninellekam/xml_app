@@ -19,7 +19,6 @@ void    Company::add_department(std::string name) {
     auto it = dpts.find(name);
     if (it == dpts.end())
     {
-        cout <<"gg";
         Department  dpt(name);
         dpts[name] = dpt;
     }

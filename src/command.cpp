@@ -23,7 +23,7 @@ AddWorker::AddWorker(std::string d,std::string s,
     std::string f,
     std::string m,
     std::string ff, int sal) {depn = d ; swrk = s; 
-    fwrk = s; 
+    fwrk = f; 
     mwrk = m; func = ff; salary = sal;}
 void AddWorker::redo() {
         comp->add_worker(depn,swrk,fwrk,mwrk,func,salary);

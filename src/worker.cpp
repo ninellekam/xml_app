@@ -1,6 +1,6 @@
 #include "../inc/worker.h"
 
-Worker::Worker(std::string fn, std::string sn, std::string mn){
+Worker::Worker(std::string sn, std::string fn, std::string mn){
     firstName = fn;
     secondName = sn;
     middleName = mn;
@@ -12,7 +12,7 @@ void                    Worker::print_worker() {
     std::cout << "\tFunction: " << function << endl;
     std::cout << "\tSalary: " << to_string(salary) << endl;
 }
-Worker::Worker(std::string fn, std::string sn, std::string mn, std::string func, int sal) {
+Worker::Worker(std::string sn, std::string fn, std::string mn, std::string func, int sal) {
     firstName = fn;
     secondName = sn;
     middleName = mn;

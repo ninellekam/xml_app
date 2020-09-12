@@ -3,8 +3,9 @@
 using namespace std;
 using namespace tinyxml2;
 #include "../inc/gopro.h"
+#include "../inc/xxx.h"
 
-
+Gopro ok;
 int fxml()
 {
     XMLDocument xmlDoc;
@@ -15,14 +16,13 @@ int fxml()
 
     XMLNode * root = xmlDoc.FirstChildElement("departments");
     if (root == nullptr) return -1;
-    
-    Gopro ok;
+
     for (XMLElement *department = root->FirstChildElement(); department!=nullptr; department=department->NextSiblingElement())
     {    
         Department dp;
         dp.depName = department->Attribute("name") ; 
         ok.adddprtmnt(dp.depName);
-       // cout << "DEPARTMENT:" << dp.depName <<endl<<endl;
+
         XMLNode * employments = department->FirstChildElement("employments");
         Worker wrk;
         
@@ -34,7 +34,7 @@ int fxml()
                     wrk.secondName =  element->GetText() ;
                 else if (element == employment->FirstChildElement("name") )
                     wrk.firstName =  element->GetText() ;
-                else if (element == employment->FirstChildElement("middlename") )
+                else if (element == employment->FirstChildElement("middleName") )
                     wrk.middleName =  element->GetText() ;
                 else if (element == employment->FirstChildElement("function") )
                     wrk.function =  element->GetText() ;
@@ -47,24 +47,21 @@ int fxml()
             wrk.middleName,wrk.function,wrk.salary);
         }
     }
-    cout <<"from load" <<endl;
-     ok.print_gopro();
+    ok.print_gopro();
     return 0;
 }
 int main()
 {
-    
     //---------------go  process----------------------------------------
-    Gopro ok;
     std::string com;
-    std::cin >> com;
+    com = "go";
+    /*while (com !="EXIT"){
+        std::cin >> com;
     if (com == "LOAD")
     //----------------------load file---------------------------------- 
         fxml();
-    ok.print_gopro();   
-    std::cin >> com;
-    if (com == "ADD")
-    {
+    else if (com == "ADD")
+    {*/
     std::cout << "Department:"<<std::endl;
     std::string dep;
     std::cin >> dep ;
@@ -84,11 +81,17 @@ int main()
     std::cout << "Salary:"<<std::endl;
     int salary;
     std::cin >> salary ;
+    in_xml(dep,sn,fn,mn,func,salary);
     ok.addwrkr(dep,sn,fn,mn,func,salary);
-    }
-    ok.print_gopro();
-    std::cin >> com ;
-    if (com == "UNDO")
+    
+  //  ok.addwrkr(dep,sn,fn,mn,func,salary);
+  //  fxml();
+  //  ok.print_gopro();
+    /*}
+    else if (com == "UNDO")
+    {
     ok.UNDO();
     ok.print_gopro();
+    }
+}*/
 }

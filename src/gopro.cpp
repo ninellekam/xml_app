@@ -1,7 +1,6 @@
 #include "../inc/gopro.h"
 
 void    Gopro::adddprtmnt(std::string name){
-    cout << "ok";
     c = new Adddep(name);
     c->set_company(&com);
     c->redo();
