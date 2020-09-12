@@ -42,11 +42,12 @@ void    Department::setName(std::string newName){
     }
 void    Department::addworker(Worker wrkr){
         workers[wrkr.secondName] = wrkr;
+        workers[wrkr.secondName].salary = wrkr.salary;
     }
 void    Department::print_department(){
+    cout<<"Department:" << depName << endl;
     for (auto it = workers.begin() ; it!= workers.end() ; it++)
     {
-          cout<<"Department:" << depName << endl;
           it->second.print_worker();
     }
 }

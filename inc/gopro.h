@@ -15,6 +15,9 @@ public:
                                     std::string func, int sal);
 void    delwrkr(std::string depn,std::string s);
 void    deldprtmnt(std::string name);
+void    UNDO();
+void    REDO();
+void    print_gopro();
 };
 
 //void    editwrkr(std::string dpt, std::string swrk, std::string func, int salary);

@@ -63,3 +63,10 @@ void    Company::del_worker(std::string depn,std::string s){
     }
 }
 
+void    Company::print_comp() {
+    for (auto it = dpts.begin() ; it != dpts.end() ; it++)
+    {
+        it->second.print_department();
+    }
+}
+

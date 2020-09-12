@@ -23,6 +23,7 @@ void    del_worker(std::string depn,std::string s);
 void    delete_department(std::string name);
 void    edit_worker(std::string dpt, std::string swrk, std::string func, int salary);
 void    change_department_name(std::string name, std::string newname);
+void    print_comp();
 };
 
 #endif

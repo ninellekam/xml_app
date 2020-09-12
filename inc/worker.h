@@ -12,7 +12,7 @@ public:
     std::string  firstName;
     std::string  middleName; //отчество
     std::string  function;
-    unsigned int     salary;
+    int     salary;
     Worker() {}
     ~Worker() {}
     Worker(std::string fn, std::string sn, std::string mn, std::string func, int salary);

@@ -11,25 +11,47 @@ void    Gopro::addwrkr(std::string depn,std::string s,
 std::string f,
 std::string m,
 std::string func, int sal){
-    Command *com;
-    AddWorker add(depn,s,f,m,func,sal);
-    com = &add;
-    com->redo();
-    Do_Com.push_back(com);
+    c = new AddWorker(depn,s,f,m,func,sal);
+    c->set_company(&com);
+    c->redo();
+    Do_Com.push_back(c);
 }
 
 void    Gopro::delwrkr(std::string depn,std::string s){
-    Command *com;
-    DelWorker add(depn,s);
-    com = &add;
-    com->redo();
-    Do_Com.push_back(com);
+    c = new DelWorker(depn,s);
+    c->set_company(&com);
+    c->redo();
+    Do_Com.push_back(c);
 }
 void    Gopro::deldprtmnt(std::string name)
 {
-    Command *com;
-    Deldep add(name);
-    com = &add;
-    com->redo();
-    Do_Com.push_back(com);
+    c = new Deldep(name);
+    c->set_company(&com);
+    c->redo();
+    Do_Com.push_back(c);
+}
+
+void Gopro::UNDO() {
+    if (Do_Com.size() == 0) {
+        std::cerr << "There's nothing to undo" << std::endl;
+    } else {
+        c = Do_Com.back();
+        Do_Com.pop_back();
+        c->undo();
+        No_Com.push_back(c);
+    }
+}
+void Gopro::REDO() {
+    if (No_Com.size() == 0) {
+        std::cerr << "There's nothing to redo" << std::endl;
+    } else {
+        c = No_Com.back();
+        No_Com.pop_back();
+        c->redo();
+        Do_Com.push_back(c);
+    }
+}
+
+void    Gopro::print_gopro(){
+        com.print_comp();
 }

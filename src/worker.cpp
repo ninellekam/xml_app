@@ -6,18 +6,18 @@ Worker::Worker(std::string fn, std::string sn, std::string mn){
     middleName = mn;
 }
 void                    Worker::print_worker() {
-    std::cout << "\tSecondName:" << secondName << endl;
-    std::cout << "\tFirstName:" << firstName << endl;
-    std::cout << "\tMiddleName:" << middleName << endl;
-    std::cout << "\tFunction:" << function << endl;
-    std::cout << "\tSalary:" << salary << endl;
+    std::cout << "\tSecondName: " << secondName << endl;
+    std::cout << "\tFirstName: " << firstName << endl;
+    std::cout << "\tMiddleName: " << middleName << endl;
+    std::cout << "\tFunction: " << function << endl;
+    std::cout << "\tSalary: " << to_string(salary) << endl;
 }
-Worker::Worker(std::string fn, std::string sn, std::string mn, std::string func, int salary) {
+Worker::Worker(std::string fn, std::string sn, std::string mn, std::string func, int sal) {
     firstName = fn;
     secondName = sn;
     middleName = mn;
     function = func;
-    salary = salary;
+    salary = sal;
 }
 /*vector <std::string>     Worker::getName() {
     vector<std::string> ok;

@@ -16,11 +16,12 @@ int fxml()
     XMLNode * root = xmlDoc.FirstChildElement("departments");
     if (root == nullptr) return -1;
     
-    vector<Department> comp;
+    Gopro ok;
     for (XMLElement *department = root->FirstChildElement(); department!=nullptr; department=department->NextSiblingElement())
     {    
         Department dp;
         dp.depName = department->Attribute("name") ; 
+        ok.adddprtmnt(dp.depName);
        // cout << "DEPARTMENT:" << dp.depName <<endl<<endl;
         XMLNode * employments = department->FirstChildElement("employments");
         Worker wrk;
@@ -41,23 +42,34 @@ int fxml()
                     wrk.salary =  atoi(element->GetText()) ;
             }
             dp.addworker(wrk);
-            comp.push_back(dp);
+            ok.addwrkr(dp.depName,wrk.secondName,
+            wrk.firstName,
+            wrk.middleName,wrk.function,wrk.salary);
         }
     }
-    for (auto it = comp.begin() ; it != comp.end() ; it++)
-             it->print_department();
+    cout <<"from load" <<endl;
+     ok.print_gopro();
     return 0;
 }
 int main()
 {
+    
+    //---------------go  process----------------------------------------
     Gopro ok;
+    std::string com;
+    std::cin >> com;
+    if (com == "LOAD")
+    //----------------------load file---------------------------------- 
+        fxml();
+    ok.print_gopro();   
+    std::cin >> com;
+    if (com == "ADD")
+    {
     std::cout << "Department:"<<std::endl;
     std::string dep;
     std::cin >> dep ;
     ok.adddprtmnt(dep);
-
-
-   /* std::cout << "Surname:"<<std::endl;
+        std::cout << "Surname:"<<std::endl;
         std::string sn;
         std::cin >> sn ;
     std::cout << "Firstname:"<<std::endl;
@@ -72,5 +84,11 @@ int main()
     std::cout << "Salary:"<<std::endl;
     int salary;
     std::cin >> salary ;
-    ok.addwrkr(dep,sn,fn,mn,func,salary);*/
+    ok.addwrkr(dep,sn,fn,mn,func,salary);
+    }
+    ok.print_gopro();
+    std::cin >> com ;
+    if (com == "UNDO")
+    ok.UNDO();
+    ok.print_gopro();
 }
