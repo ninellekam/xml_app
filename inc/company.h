@@ -20,9 +20,12 @@ std::string f,
 std::string m,
 std::string func, int sal);
 void    del_worker(std::string depn,std::string s);
+Worker    find_worker(std::string depn,std::string s);
 void    delete_department(std::string name);
 void    edit_worker(std::string dpt, std::string swrk, std::string func, int salary);
 void    change_department_name(std::string name, std::string newname);
+Department find_dpt (std::string name);
+Company& operator= ( Company &other);
 void    print_comp();
 };
 

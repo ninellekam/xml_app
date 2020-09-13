@@ -13,7 +13,7 @@ public:
     std::string  middleName; //отчество
     std::string  function;
     int     salary;
-    Worker() {}
+    Worker() {function = "none" , salary = 0;}
     ~Worker() {}
     Worker(std::string fn, std::string sn, std::string mn, std::string func, int salary);
     Worker(std::string fn, std::string sn, std::string mn);

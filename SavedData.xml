@@ -1,13 +1,10 @@
 <departments/>
-
-<department name=" "/>
-
+<department name="NINA"/>
 <employments/>
-
 <employment>
-    <surname>hfjgf</surname>
-    <name>jfj</name>
-    <middlename>fkfgkkg</middlename>
-    <function>hgkhgkhg</function>
-    <salary>674</salary>
+    <surname>NINA</surname>
+    <name>NINA</name>
+    <middlename>NINA</middlename>
+    <function>NINA</function>
+    <salary>30002000</salary>
 </employment>

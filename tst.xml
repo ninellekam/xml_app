@@ -92,7 +92,7 @@
          </employment>
       </employments>
    </department>
-   <department name="Системное программирование">
+   <department name="syprog">
       <employments>
          <employment>
             <surname>Васильев</surname>

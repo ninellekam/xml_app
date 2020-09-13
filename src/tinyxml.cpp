@@ -47,51 +47,71 @@ int fxml()
             wrk.middleName,wrk.function,wrk.salary);
         }
     }
-    ok.print_gopro();
     return 0;
 }
 int main()
 {
     //---------------go  process----------------------------------------
     std::string com;
-    com = "go";
-    /*while (com !="EXIT"){
-        std::cin >> com;
-    if (com == "LOAD")
-    //----------------------load file---------------------------------- 
-        fxml();
-    else if (com == "ADD")
-    {*/
-    std::cout << "Department:"<<std::endl;
     std::string dep;
-    std::cin >> dep ;
-    ok.adddprtmnt(dep);
-        std::cout << "Surname:"<<std::endl;
-        std::string sn;
-        std::cin >> sn ;
-    std::cout << "Firstname:"<<std::endl;
-        std::string fn;
-        std::cin >> fn ;
-    std::cout << "Middlename:"<<std::endl;
-        std::string mn;
-        std::cin >> mn ;
-    std::cout << "Function:"<<std::endl;
-        std::string func;
-        std::cin >> func ;
-    std::cout << "Salary:"<<std::endl;
-    int salary;
-    std::cin >> salary ;
-    in_xml(dep,sn,fn,mn,func,salary);
-    ok.addwrkr(dep,sn,fn,mn,func,salary);
-    
-  //  ok.addwrkr(dep,sn,fn,mn,func,salary);
-  //  fxml();
+    std::string sn; std::string func; int salary;
+    Company comp;
+    com = "go";
+    while (com !="EXIT"){
+        std::cin >> com;
+        fxml();
+      //  ok.adddprtmnt("syprog");
+        ok.editwrkr("syprog","Васильев","ddd",221);
+//     if (com == "LOAD")
+//     //----------------------load file---------------------------------- 
+//         fxml();
+//     else if (com == "ADD")
+//     {
+//     std::cout << "Department:"<<std::endl;
+//     std::string dep;
+//     std::cin >> dep ;
+//     ok.adddprtmnt(dep);
+//         std::cout << "Surname:"<<std::endl;
+//         std::string sn;
+//         std::cin >> sn ;
+//     std::cout << "Firstname:"<<std::endl;
+//         std::string fn;
+//         std::cin >> fn ;
+//     std::cout << "Middlename:"<<std::endl;
+//         std::string mn;
+//         std::cin >> mn ;
+//     std::cout << "Function:"<<std::endl;
+//         std::string func;
+//         std::cin >> func ;
+//     std::cout << "Salary:"<<std::endl;
+//     int salary;
+//     std::cin >> salary ;
+//    // in_xml(dep,sn,fn,mn,func,salary);
+//     fxml();
+//     ok.addwrkr(dep,sn,fn,mn,func,salary);
+//    // ok.print_gopro();
+//     cout <<"------------------------------------------------------" << endl;
+//     cout <<"------------------------------------------------------" << endl;
+//     }
+//     else if (com == "EDIT")
+//     {
+//         fxml();
+//                         std::cout << "Department: ";
+//                         cin >> dep;
+//                         std::cout << "Surname: ";
+//                         cin>>sn;
+//                         std::cout << "Function: ";
+//                         cin >> func;
+//                         std::cout << "Salary: ";
+//                         cin >> salary;
+//         ok.editwrkr(dep,sn,func,salary);
+//      //   ok.print_gopro();
+//     }
+    // else if (com == "UNDO")
+    // {
+   // ok.UNDO();
+     cout <<"---------------------UUUUU NNN DDDD OOOO----------------------" << endl;
   //  ok.print_gopro();
-    /*}
-    else if (com == "UNDO")
-    {
-    ok.UNDO();
-    ok.print_gopro();
-    }
-}*/
+   // }
+}
 }

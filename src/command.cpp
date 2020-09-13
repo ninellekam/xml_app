@@ -2,6 +2,7 @@
 
 void    Command::set_company(Company *c){
         comp = c;
+        comp->dpts = c->dpts;
 }
 Adddep::Adddep(std::string n) {name = n;}
 void Adddep::redo() {
@@ -43,4 +44,25 @@ void DelWorker::undo() {
         it->second.workers[swrk].middleName,
         it->second.workers[swrk].function,
         it->second.workers[swrk].salary);
+    }
+
+EditWorker::EditWorker(std::string d,
+    std::string s,
+    std::string f,
+    int sal) {
+        dpt = d; swrk = s;
+        preds = swrk;
+        predfunc=f; predsalary=sal;
+     
+        comp->find_worker(dpt,swrk);
+        cout << "predfunc " << predfunc << endl;
+        predsalary = comp->find_worker(d,s).salary;
+        func = f; salary = sal; 
+    }
+void    EditWorker::redo() {
+    cout <<"d";
+        comp->edit_worker(dpt,swrk,func,salary);
+    }
+void    EditWorker::undo() {
+        comp->edit_worker(dpt,preds,predfunc,predsalary);
     }

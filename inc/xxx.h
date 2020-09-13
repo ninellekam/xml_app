@@ -6,3 +6,5 @@ using namespace tinyxml2;
 
 int in_xml(std::string dn, std::string s,std::string f,std::string m,std::string ff,
 int sal);
+int un_xml(std::string dn, std::string s,std::string f,std::string m,std::string ff,
+int sal);

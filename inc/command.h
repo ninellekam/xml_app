@@ -53,4 +53,22 @@ class DelWorker : public Command {
     void undo();
 };
 
+class EditWorker : public Command {
+    public :
+    std::string dpt;
+    std::string swrk;
+    std::string func;
+    std::string preds;
+    std::string predfunc;
+    int predsalary;
+    int salary;
+
+    EditWorker(std::string d,
+    std::string s,
+    std::string f,
+    int sal);
+    void redo();
+    void undo(); 
+};
+
 #endif

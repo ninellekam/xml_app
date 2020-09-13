@@ -9,6 +9,12 @@ void    Company::add_worker(std::string depn,std::string s,
     if (it != dpts.end())
         it->second.addworker(ok);
 }
+Company& Company::operator= (Company &other) {
+        dpts = other.dpts;
+        return (*this);
+    }
+
+
 void    Company::go_department(std::string name,Department &d){
     dpts[name] = d;
 }
@@ -32,6 +38,8 @@ void    Company::delete_department(std::string name){
     else
          std::logic_error("ERROR : department name:" + name + "NOT FOUND");   
 }
+
+
 void    Company::edit_worker(std::string dpt, std::string swrk, std::string func, int salary){
     auto it = dpts.find(dpt);
     if (it != dpts.end())
@@ -39,6 +47,8 @@ void    Company::edit_worker(std::string dpt, std::string swrk, std::string func
     else
         std::logic_error("Name:" + swrk + "NOT FOUND");
 }
+
+
 void    Company::change_department_name(std::string name, std::string newname){
     auto it = dpts.find(name);
     if (it != dpts.end())
@@ -61,7 +71,27 @@ void    Company::del_worker(std::string depn,std::string s){
         dpts.erase(it);
     }
 }
+Worker   Company::find_worker(std::string depn,std::string s) {
+    cout << "AAAA "<< depn <<endl;
+    auto it = dpts.find(depn);
+    Worker w;
+    // if (it != dpts.end())
+    // {
+    //     w = it->second.workers[s];
+    // }
+    // else
+    // cout<<"not found department";
+    return w;
+}
 
+Department Company::find_dpt (std::string name) {
+        auto it = dpts.find(name);
+        if (it != dpts.end()) {
+            return it->second;
+        } else {
+            return Department();
+        }
+    }
 void    Company::print_comp() {
     for (auto it = dpts.begin() ; it != dpts.end() ; it++)
     {

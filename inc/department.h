@@ -18,11 +18,12 @@ public:
 
 
     Department() {}
-    Department(std::string dn) {depName = dn;}
+    Department(std::string dn) {depName = dn; countWorkers = 0; avgSalary =0;}
     Department(std::string dn, Worker wrkrs){
         depName = dn;
         std::string tcn = wrkrs.secondName;
         workers[tcn] = wrkrs;
+        countWorkers = 0; avgSalary =0;
     }
     std::string   getName();
     int     getCountWorkers();

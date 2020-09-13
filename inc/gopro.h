@@ -15,6 +15,10 @@ public:
                                     std::string func, int sal);
 void    delwrkr(std::string depn,std::string s);
 void    deldprtmnt(std::string name);
+void    editwrkr(std::string d,
+    std::string s,
+    std::string f,
+    int sal);
 void    UNDO();
 void    REDO();
 void    print_gopro();

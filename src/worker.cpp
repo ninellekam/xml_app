@@ -1,5 +1,6 @@
 #include "../inc/worker.h"
 
+
 Worker::Worker(std::string sn, std::string fn, std::string mn){
     firstName = fn;
     secondName = sn;

@@ -47,61 +47,24 @@ int sal)
 int un_xml(std::string dn, std::string s,std::string f,std::string m,std::string ff,
 int sal) {
     XMLDocument xmlDoc;
-
-    XMLError eResult = xmlDoc.LoadFile("tst.xml");
-
-    if (eResult != XML_SUCCESS) return -1;
+    xmlDoc.LoadFile("SavedData.xml");
+   // if (eResult != XML_SUCCESS) return -1;
 
     XMLNode * root = xmlDoc.FirstChildElement("departments");
     if (root == nullptr) return -1;
-
-
-    for (XMLElement *department = root->FirstChildElement(); department!=nullptr; department=department->NextSiblingElement())
-    {    
+    XMLElement *department = root->FirstChildElement("department");
         string depName;
-        depName = department->Attribute("name"); 
+        depName = department->Attribute("name");
+        XMLNode * employments = department->FirstChildElement("employments");
+        XMLNode * employment = department->FirstChildElement("employment");
+        XMLNode *empll = xmlDoc.NewElement("EMPLOYMENT");
+        cout << employments->InsertAfterChild(employment,empll);
+        // XMLElement * pNew = xmlDoc.NewElement("MIDDLE");
+        // pNew->SetText(m.c_str());
+        // employments->InsertAfterChild(employments,pNew);
 
-        XMLNode * empls = department->FirstChildElement("employments");
-                for (XMLNode *empl = empls->FirstChildElement();empl!=nullptr;empl=empl->NextSiblingElement())
-                {        
-                    if (dn == depName)
-                    {
-                    for (XMLElement* elem = empl->FirstChildElement() ; elem != nullptr ; elem = elem->NextSiblingElement())
-                    {
-                        if ( elem == empl->FirstChildElement("surname") )
-                            {
-                                XMLElement * pNew = xmlDoc.NewElement("surname");
-                                pNew->SetText(s.c_str());
-                                empl->InsertEndChild(pNew);
-                            }
-                        else if (elem == empl->FirstChildElement("name") )
-                        {
-                            XMLElement * pNew = xmlDoc.NewElement("name");
-                            pNew->SetText(f.c_str());
-                            empl->InsertEndChild(pNew);
-                        }
-                         else if (elem == empl->FirstChildElement("middlename") )
-                        {
-                            XMLElement * pNew = xmlDoc.NewElement("middlename");
-                            pNew->SetText(m.c_str());
-                            empl->InsertEndChild(pNew);
-                         }
-                        else if (elem == empl->FirstChildElement("function") )
-                        {
-                            XMLElement * pNew = xmlDoc.NewElement("function");
-                            pNew->SetText(ff.c_str());
-                            empl->InsertEndChild(pNew);
-                        }
-                        else if (elem == empl->FirstChildElement("salary") )
-                        {
-                            XMLElement * pNew = xmlDoc.NewElement("salary");
-                            pNew->SetText(sal);
-                            empl->InsertEndChild(pNew);
-                        }    
-                    }
-                } 
-            }
-    }
+    
+    xmlDoc.SaveFile("SavedData.xml");
     return 0;
 }
 
