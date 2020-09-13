@@ -19,6 +19,7 @@ void    editwrkr(std::string d,
     std::string s,
     std::string f,
     int sal);
+void    chngdprtmntname(std::string name, std::string newname);
 void    UNDO();
 void    REDO();
 void    print_gopro();

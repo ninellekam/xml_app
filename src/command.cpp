@@ -35,15 +35,16 @@ void AddWorker::undo() {
 
 DelWorker::DelWorker(std::string d,std::string s) {depn = d; swrk = s;}
 void DelWorker::redo() {
+        fwrk = comp->find_worker(depn,swrk).firstName;
+        mwrk = comp->find_worker(depn,swrk).middleName;
+        func = mwrk = comp->find_worker(depn,swrk).function;
+        salary = comp->find_worker(depn,swrk).salary;
         comp->del_worker(depn,swrk);
     }
 void DelWorker::undo() {
         auto it = comp->dpts.find(depn);
         comp->add_worker(depn, swrk, 
-        it->second.workers[swrk].firstName,
-        it->second.workers[swrk].middleName,
-        it->second.workers[swrk].function,
-        it->second.workers[swrk].salary);
+        fwrk,mwrk,func,salary);
     }
 
 EditWorker::EditWorker(std::string d,
@@ -54,13 +55,26 @@ EditWorker::EditWorker(std::string d,
         preds = swrk;
         predfunc=f; predsalary=sal;
         func = f; salary = sal; 
-    }
+}
 void    EditWorker::redo() {
         predfunc = comp->find_worker(dpt,swrk).function;
         cout << "pred " << predfunc << endl;
         predsalary = comp->find_worker(dpt,swrk).salary;
         comp->edit_worker(dpt,swrk,func,salary);
-    }
+}
 void    EditWorker::undo() {
         comp->edit_worker(dpt,preds,predfunc,predsalary);
+}
+
+
+ChangeDepName::ChangeDepName(std::string n,
+    std::string nw){
+        name = n;
+        newname = nw;
     }
+void ChangeDepName::redo(){
+        comp->change_department_name(name, newname);
+}
+void ChangeDepName::undo(){
+    comp->change_department_name(newname, name);
+}

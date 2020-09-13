@@ -48,6 +48,10 @@ class DelWorker : public Command {
     public:
     std::string depn;
     std::string swrk;
+    std::string fwrk;
+    std::string mwrk;
+    std::string func;
+    int salary;
     DelWorker(std::string d,std::string s);
     void redo();
     void undo();
@@ -67,6 +71,15 @@ class EditWorker : public Command {
     std::string s,
     std::string f,
     int sal);
+    void redo();
+    void undo(); 
+};
+class ChangeDepName : public Command {
+    public :
+    std::string name;
+    std::string newname;
+    ChangeDepName(std::string name,
+    std::string newname);
     void redo();
     void undo(); 
 };

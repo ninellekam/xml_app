@@ -91,24 +91,41 @@ int main()
     else if (com == "EDIT")
     {
         fxml();
-                        std::cout << "Department: ";
-                        getline(std::cin,dep);
-                        std::cout << "Surname: ";
-                        getline(std::cin,sn);
-                        std::cout << "Function: ";
-                        getline(std::cin,func);
-                        std::cout << "Salary: ";
-                        std::string sal;
-                        getline(std::cin,sal);
-                        salary = std::atoi(sal.c_str());
+                std::cout << "Department: ";
+                getline(std::cin,dep);
+                std::cout << "Surname: ";
+                getline(std::cin,sn);
+                std::cout << "New Function: ";
+                getline(std::cin,func);
+                std::cout << "New Salary: ";
+                std::string sal;
+                getline(std::cin,sal);
+                salary = std::atoi(sal.c_str());
         ok.editwrkr(dep,sn,func,salary);
         ok.print_gopro();
     }
-    else if (com == "UNDO")
-    {
-    ok.UNDO();
-    cout <<"---------------------UUUUU NNN DDDD OOOO----------------------" << endl;
-    ok.print_gopro();
-   }
+    else if (com == "CHANGE"){
+        fxml();
+        ok.print_gopro();
+                std::cout << "Name Department: ";
+                getline(std::cin,dep);
+                std::cout << "Newname: ";
+                getline(std::cin,sn);
+        ok.chngdprtmntname(dep,sn);
+        //ok.print_gopro();
+    }
+    else if (com =="DELW"){
+        fxml();
+        std::cout << "Department: ";
+                getline(std::cin,dep);
+        std::cout << "Surname:"<<std::endl;
+            getline(std::cin,sn);
+        ok.delwrkr(dep, sn);
+    }
+    else if (com == "UNDO"){
+        ok.UNDO();
+        cout <<"---------------------UUUUU NNN DDDD OOOO----------------------" << endl;
+        ok.print_gopro();
+    }
 }
 }

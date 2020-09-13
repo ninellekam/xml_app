@@ -58,10 +58,9 @@ void    Company::change_department_name(std::string name, std::string newname){
         auto ok = dpts.find(newname);
         if (ok == dpts.end())
         {
-        Department newdep(it->second);
-        newdep.change_department(newname);
-        dpts[name] = newdep;
-        dpts.erase(it);
+            Department newdep(it->second);
+            newdep.change_department(newname);
+            dpts[name] = newdep;
         }
     }
 }
@@ -70,7 +69,7 @@ void    Company::del_worker(std::string depn,std::string s){
     if (it != dpts.end())
     {
         it->second.delworker(s);
-        dpts.erase(it);
+      // dpts.erase(it);
     }
 }
 Worker   Company::find_worker(std::string depn,std::string s) {

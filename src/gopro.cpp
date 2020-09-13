@@ -29,6 +29,13 @@ void    Gopro::deldprtmnt(std::string name)
     c->redo();
     Do_Com.push_back(c);
 }
+void    Gopro::chngdprtmntname(std::string name, std::string newname)
+{
+    c = new ChangeDepName(name, newname);
+    c->set_company(&com);
+    c->redo();
+    Do_Com.push_back(c);
+}
 
 void    Gopro::editwrkr(std::string d,
     std::string s,

@@ -1,14 +1,21 @@
 #include "../inc/department.h"
 
+Department::Department(std::string dn) { depName = dn; countWorkers = 0; avgSalary = 0;}
+
+Department::Department(std::string dn, Worker wrkrs){
+    depName = dn;
+    std::string tcn = wrkrs.secondName;
+    workers[tcn] = wrkrs;
+    countWorkers = 0; avgSalary =0;
+}
 int     Department::getCountWorkers() {
       return countWorkers;
-  }
+}
 int     Department::getavgSalary() {
     if (countWorkers != 0)
-    return avgSalary/countWorkers;
+        return avgSalary/countWorkers;
     else
-        return avgSalary;
-    
+        return avgSalary;   
 }
 void    Department::delworker( std::string sn) {
         auto it = workers.find(sn);
@@ -56,9 +63,9 @@ void    Department::addworker(Worker wrkr){
         avgSalary = avgSalary + wrkr.salary;
     }
 void    Department::print_department(){
-    cout<<"\vDepartment:" << depName << endl;
-    std::cout << " \vСount of workers: " << getCountWorkers() << std::endl;
-    std::cout << " \vAvg Salary: " << getavgSalary() << std::endl;
+    std::cout<< "\vDepartment:" << depName << std::endl;
+    std::cout << "\vСount of workers: " << getCountWorkers() << std::endl;
+    std::cout << "\vAvg Salary: " << getavgSalary() << std::endl;
     int c = 0;
     for (auto it = workers.begin() ; it!= workers.end() ; it++)
     {

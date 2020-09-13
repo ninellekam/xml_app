@@ -18,23 +18,18 @@ public:
 
 
     Department() {}
-    Department(std::string dn) {depName = dn; countWorkers = 0; avgSalary =0;}
-    Department(std::string dn, Worker wrkrs){
-        depName = dn;
-        std::string tcn = wrkrs.secondName;
-        workers[tcn] = wrkrs;
-        countWorkers = 0; avgSalary =0;
-    }
-    std::string   getName();
-    int     getCountWorkers();
-    int     getavgSalary();
-    void    delworker( std::string sn);
-    void    addworker(Worker wrkr);
-    void    edit_worker(std::string swrk, std::string func, int salary);
-    void    changeWorker(std::string for_change_secname, vector<std::string> name, std::string func, int salary);
-    void    setName(std::string newName);
-    void    print_department();
-    void    change_department( std::string newname);
+    Department(std::string dn);
+    Department(std::string dn, Worker wrkrs);
+    std::string     getName();
+    int             getCountWorkers();
+    int             getavgSalary();
+    void            delworker( std::string sn);
+    void            addworker(Worker wrkr);
+    void            edit_worker(std::string swrk, std::string func, int salary);
+    void            changeWorker(std::string for_change_secname, vector<std::string> name, std::string func, int salary);
+    void            setName(std::string newName);
+    void            print_department();
+    void            change_department( std::string newname);
 };
 
 #endif
