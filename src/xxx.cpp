@@ -1,70 +1,110 @@
 #include "../inc/xxx.h"
 
-int in_xml(std::string dn, std::string s,std::string f,std::string m,std::string ff,
+int if_dprtmnt_in_xml(std::string dn, std::string s,std::string f,std::string m,std::string ff,
 int sal)
 {
     XMLDocument xmlDoc;
-    XMLError eResult ;
-  //  XMLError eResult = xmlDoc.LoadFile("tst.xml");
+    XMLError eResult = xmlDoc.LoadFile("tst.xml");
     if (eResult != XML_SUCCESS) return -1;
-                XMLNode * pRoot = xmlDoc.NewElement("departments");
-                xmlDoc.InsertFirstChild(pRoot);
+                XMLNode * root = xmlDoc.FirstChildElement("departments");
+if (root == nullptr) return -1;
 
-                XMLElement * pElement = xmlDoc.NewElement("department");
-                xmlDoc.InsertEndChild(pElement);
-                pElement->SetAttribute("name", dn.c_str());
+XMLElement *department = root->FirstChildElement("department");
+for (XMLElement *department = root->FirstChildElement(); department!=nullptr; department=department->NextSiblingElement())
+{  
+    std::string depname;
+    depname = department->Attribute("name");
+    if  (depname == dn)
+    {
 
-                XMLNode * empls = xmlDoc.NewElement("employments");
-                xmlDoc.InsertEndChild(empls);
-                
-                XMLNode * empl = xmlDoc.NewElement("employment");
-                xmlDoc.InsertEndChild(empl);
-                //---------------------------surname--------------------
-                        XMLElement * pNew = xmlDoc.NewElement("surname");
-                        pNew->SetText(s.c_str());
-                        empl->InsertEndChild(pNew);
-                //----------------------------name-------------------------
-                        pNew = xmlDoc.NewElement("name");
-                        pNew->SetText(f.c_str());
-                        empl->InsertEndChild(pNew);
-                //----------------------middlename--------------------------
-                        pNew = xmlDoc.NewElement("middlename");
-                        pNew->SetText(m.c_str());
-                        empl->InsertEndChild(pNew);
-                //----------------function----------------------
-                        pNew = xmlDoc.NewElement("function");
-                        pNew->SetText(ff.c_str());
-                        empl->InsertEndChild(pNew);
-                //----------------salary------------------------------
-                        pNew = xmlDoc.NewElement("salary");
-                        pNew->SetText(sal);
-                        empl->InsertEndChild(pNew);
+        XMLElement *employments = department->FirstChildElement("employments");
+        XMLElement *employmentElement = xmlDoc.NewElement("employment");
+        XMLElement *element = xmlDoc.NewElement("surname");
+        XMLText *elementText = xmlDoc.NewText(s.c_str());
 
-            eResult = xmlDoc.SaveFile("SavedData.xml");
+        element->LinkEndChild(elementText); 
+        employmentElement->LinkEndChild(element); 
+        employments->LinkEndChild(employmentElement); 
+
+        element = xmlDoc.NewElement("name");
+        elementText = xmlDoc.NewText(f.c_str());
+        element->LinkEndChild(elementText); 
+        employmentElement->LinkEndChild(element); 
+        employments->LinkEndChild(employmentElement);
+
+        element = xmlDoc.NewElement("middlename");
+        elementText = xmlDoc.NewText(m.c_str());
+        element->LinkEndChild(elementText); 
+        employmentElement->LinkEndChild(element); 
+        employments->LinkEndChild(employmentElement);
+
+        element = xmlDoc.NewElement("function");
+        elementText = xmlDoc.NewText(ff.c_str());
+        element->LinkEndChild(elementText); 
+        employmentElement->LinkEndChild(element);  
+        employments->LinkEndChild(employmentElement);
+
+        element = xmlDoc.NewElement("salary");
+        elementText = xmlDoc.NewText(to_string(sal).c_str());
+        element->LinkEndChild(elementText); 
+        employmentElement->LinkEndChild(element); 
+        employments->LinkEndChild(employmentElement);
+    }
+}
+
+xmlDoc.SaveFile("txt.xml");
     return (0);
 }
 
-int un_xml(std::string dn, std::string s,std::string f,std::string m,std::string ff,
+int if_dprtmnt_no_in_xml(std::string dn, std::string s,std::string f,std::string m,std::string ff,
 int sal) {
+
     XMLDocument xmlDoc;
-    xmlDoc.LoadFile("SavedData.xml");
-   // if (eResult != XML_SUCCESS) return -1;
+xmlDoc.LoadFile("tst.xml");
+// if (eResult != XML_SUCCESS) return -1;
 
-    XMLNode * root = xmlDoc.FirstChildElement("departments");
-    if (root == nullptr) return -1;
-    XMLElement *department = root->FirstChildElement("department");
-        string depName;
-        depName = department->Attribute("name");
-        XMLNode * employments = department->FirstChildElement("employments");
-        XMLNode * employment = department->FirstChildElement("employment");
-        XMLNode *empll = xmlDoc.NewElement("EMPLOYMENT");
-        cout << employments->InsertAfterChild(employment,empll);
-        // XMLElement * pNew = xmlDoc.NewElement("MIDDLE");
-        // pNew->SetText(m.c_str());
-        // employments->InsertAfterChild(employments,pNew);
+XMLNode * root = xmlDoc.FirstChildElement("departments");
+if (root == nullptr) return -1;
 
-    
-    xmlDoc.SaveFile("SavedData.xml");
+XMLElement *department = xmlDoc.NewElement("department");
+department->SetAttribute("name",dn.c_str());
+root->LinkEndChild(department);
+XMLElement *employments = xmlDoc.NewElement("employments");
+department->LinkEndChild(employments);
+
+XMLElement *employmentElement = xmlDoc.NewElement("employment");
+XMLElement *element = xmlDoc.NewElement("surname");
+XMLText *elementText = xmlDoc.NewText(s.c_str());
+
+element->LinkEndChild(elementText); 
+employmentElement->LinkEndChild(element); 
+employments->LinkEndChild(employmentElement); 
+
+element = xmlDoc.NewElement("name");
+elementText = xmlDoc.NewText(f.c_str());
+element->LinkEndChild(elementText); 
+employmentElement->LinkEndChild(element); 
+employments->LinkEndChild(employmentElement);
+
+element = xmlDoc.NewElement("middlename");
+elementText = xmlDoc.NewText(m.c_str());
+element->LinkEndChild(elementText); 
+employmentElement->LinkEndChild(element); 
+employments->LinkEndChild(employmentElement);
+
+element = xmlDoc.NewElement("function");
+elementText = xmlDoc.NewText(ff.c_str());
+element->LinkEndChild(elementText); 
+employmentElement->LinkEndChild(element);  
+employments->LinkEndChild(employmentElement);
+
+element = xmlDoc.NewElement("salary");
+elementText = xmlDoc.NewText(to_string(sal).c_str());
+element->LinkEndChild(elementText); 
+employmentElement->LinkEndChild(element); 
+employments->LinkEndChild(employmentElement);
+
+xmlDoc.SaveFile("SavedData.xml");
     return 0;
 }
 

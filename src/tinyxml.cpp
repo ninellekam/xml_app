@@ -60,30 +60,32 @@ int main()
     com = "go";
     while (com !="EXIT") {
         getline(std::cin,com);
+
     if (com == "LOAD")
     //----------------------load file ---------------------------------- 
     fxml();
     else if (com == "ADD")
     {
-    std::cout << "Department:"<<std::endl;
-    getline(std::cin,dep);
-    ok.adddprtmnt(dep);
-        std::cout << "Surname:"<<std::endl;
-    getline(std::cin,sn);
-        std::cout << "Firstname:"<<std::endl;
-    getline(std::cin,fn);
-        std::cout << "Middlename:"<<std::endl;
-    getline(std::cin,mn);
-        std::cout << "Function:"<<std::endl;
-    getline(std::cin,func);
-        std::cout << "Salary:"<<std::endl;
-    int salary;
-    std::string sal;
-    getline(std::cin,sal);
-    salary = std::atoi(sal.c_str());
+    // std::cout << "Department:"<<std::endl;
+    // getline(std::cin,dep);
+    // ok.adddprtmnt(dep);
+    //     std::cout << "Surname:"<<std::endl;
+    // getline(std::cin,sn);
+    //     std::cout << "Firstname:"<<std::endl;
+    // getline(std::cin,fn);
+    //     std::cout << "Middlename:"<<std::endl;
+    // getline(std::cin,mn);
+    //     std::cout << "Function:"<<std::endl;
+    // getline(std::cin,func);
+    //     std::cout << "Salary:"<<std::endl;
+    // int salary;
+    // std::string sal;
+    // getline(std::cin,sal);
+    // salary = std::atoi(sal.c_str());
+    if_dprtmnt_no_in_xml("nina","nina","nina","nina","nina",350000);
    // in_xml(dep,sn,fn,mn,func,salary);
-    fxml();
-    ok.addwrkr(dep,sn,fn,mn,func,salary);
+  //  fxml();
+  //  ok.addwrkr(dep,sn,fn,mn,func,salary);
    // ok.print_gopro();
     cout <<"------------------------------------------------------" << endl;
     cout <<"------------------------------------------------------" << endl;
