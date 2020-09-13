@@ -53,14 +53,12 @@ EditWorker::EditWorker(std::string d,
         dpt = d; swrk = s;
         preds = swrk;
         predfunc=f; predsalary=sal;
-     
-        comp->find_worker(dpt,swrk);
-        cout << "predfunc " << predfunc << endl;
-        predsalary = comp->find_worker(d,s).salary;
         func = f; salary = sal; 
     }
 void    EditWorker::redo() {
-    cout <<"d";
+        predfunc = comp->find_worker(dpt,swrk).function;
+        cout << "pred " << predfunc << endl;
+        predsalary = comp->find_worker(dpt,swrk).salary;
         comp->edit_worker(dpt,swrk,func,salary);
     }
 void    EditWorker::undo() {

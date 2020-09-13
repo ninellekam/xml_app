@@ -57,13 +57,12 @@ int main()
     std::string sn; std::string func; int salary;
     Company comp;
     com = "go";
-    while (com !="EXIT"){
-        std::cin >> com;
-        fxml();
-      //  ok.adddprtmnt("syprog");
-        ok.editwrkr("syprog","Васильев","ddd",221);
+    while (com !="EXIT") {
+        getline(std::cin,com);
+        fxml();  
+        ok.editwrkr("syprog", "Васильев", "ddd", 221);
 //     if (com == "LOAD")
-//     //----------------------load file---------------------------------- 
+//     //----------------------load file ---------------------------------- 
 //         fxml();
 //     else if (com == "ADD")
 //     {
@@ -109,9 +108,9 @@ int main()
 //     }
     // else if (com == "UNDO")
     // {
-   // ok.UNDO();
+     ok.UNDO();
      cout <<"---------------------UUUUU NNN DDDD OOOO----------------------" << endl;
-  //  ok.print_gopro();
+    ok.print_gopro();
    // }
 }
 }

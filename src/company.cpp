@@ -43,7 +43,9 @@ void    Company::delete_department(std::string name){
 void    Company::edit_worker(std::string dpt, std::string swrk, std::string func, int salary){
     auto it = dpts.find(dpt);
     if (it != dpts.end())
+    {
         it->second.edit_worker(swrk, func, salary);
+    }
     else
         std::logic_error("Name:" + swrk + "NOT FOUND");
 }
@@ -72,15 +74,14 @@ void    Company::del_worker(std::string depn,std::string s){
     }
 }
 Worker   Company::find_worker(std::string depn,std::string s) {
-    cout << "AAAA "<< depn <<endl;
     auto it = dpts.find(depn);
     Worker w;
-    // if (it != dpts.end())
-    // {
-    //     w = it->second.workers[s];
-    // }
-    // else
-    // cout<<"not found department";
+    if (it != dpts.end())
+    {
+        w = it->second.workers[s];
+    }
+    else
+    cout<<"not found department";
     return w;
 }
 

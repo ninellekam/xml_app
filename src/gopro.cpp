@@ -33,13 +33,13 @@ void    Gopro::deldprtmnt(std::string name)
 void    Gopro::editwrkr(std::string d,
     std::string s,
     std::string f,
-    int sal){
+    int sal) {
     c = new EditWorker(d,s,f,sal);
     cout << "ffff" <<endl;
     c->set_company(&com);
-    // c->redo();
-    // cout << "lll" <<endl;
-    // Do_Com.push_back(c);
+    c->redo();
+    cout << "lll" <<endl;
+    Do_Com.push_back(c);
     }
 
 void Gopro::UNDO() {
