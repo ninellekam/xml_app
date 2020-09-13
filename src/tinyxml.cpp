@@ -54,63 +54,61 @@ int main()
     //---------------go  process----------------------------------------
     std::string com;
     std::string dep;
-    std::string sn; std::string func; int salary;
+    std::string sn;
+    std::string fn; std::string mn;std::string func; int salary;
     Company comp;
     com = "go";
     while (com !="EXIT") {
         getline(std::cin,com);
-        fxml();  
-        ok.editwrkr("syprog", "Васильев", "ddd", 221);
-//     if (com == "LOAD")
-//     //----------------------load file ---------------------------------- 
-//         fxml();
-//     else if (com == "ADD")
-//     {
-//     std::cout << "Department:"<<std::endl;
-//     std::string dep;
-//     std::cin >> dep ;
-//     ok.adddprtmnt(dep);
-//         std::cout << "Surname:"<<std::endl;
-//         std::string sn;
-//         std::cin >> sn ;
-//     std::cout << "Firstname:"<<std::endl;
-//         std::string fn;
-//         std::cin >> fn ;
-//     std::cout << "Middlename:"<<std::endl;
-//         std::string mn;
-//         std::cin >> mn ;
-//     std::cout << "Function:"<<std::endl;
-//         std::string func;
-//         std::cin >> func ;
-//     std::cout << "Salary:"<<std::endl;
-//     int salary;
-//     std::cin >> salary ;
-//    // in_xml(dep,sn,fn,mn,func,salary);
-//     fxml();
-//     ok.addwrkr(dep,sn,fn,mn,func,salary);
-//    // ok.print_gopro();
-//     cout <<"------------------------------------------------------" << endl;
-//     cout <<"------------------------------------------------------" << endl;
-//     }
-//     else if (com == "EDIT")
-//     {
-//         fxml();
-//                         std::cout << "Department: ";
-//                         cin >> dep;
-//                         std::cout << "Surname: ";
-//                         cin>>sn;
-//                         std::cout << "Function: ";
-//                         cin >> func;
-//                         std::cout << "Salary: ";
-//                         cin >> salary;
-//         ok.editwrkr(dep,sn,func,salary);
-//      //   ok.print_gopro();
-//     }
-    // else if (com == "UNDO")
-    // {
-     ok.UNDO();
-     cout <<"---------------------UUUUU NNN DDDD OOOO----------------------" << endl;
+    if (com == "LOAD")
+    //----------------------load file ---------------------------------- 
+    fxml();
+    else if (com == "ADD")
+    {
+    std::cout << "Department:"<<std::endl;
+    getline(std::cin,dep);
+    ok.adddprtmnt(dep);
+        std::cout << "Surname:"<<std::endl;
+    getline(std::cin,sn);
+        std::cout << "Firstname:"<<std::endl;
+    getline(std::cin,fn);
+        std::cout << "Middlename:"<<std::endl;
+    getline(std::cin,mn);
+        std::cout << "Function:"<<std::endl;
+    getline(std::cin,func);
+        std::cout << "Salary:"<<std::endl;
+    int salary;
+    std::string sal;
+    getline(std::cin,sal);
+    salary = std::atoi(sal.c_str());
+   // in_xml(dep,sn,fn,mn,func,salary);
+    fxml();
+    ok.addwrkr(dep,sn,fn,mn,func,salary);
+   // ok.print_gopro();
+    cout <<"------------------------------------------------------" << endl;
+    cout <<"------------------------------------------------------" << endl;
+    }
+    else if (com == "EDIT")
+    {
+        fxml();
+                        std::cout << "Department: ";
+                        getline(std::cin,dep);
+                        std::cout << "Surname: ";
+                        getline(std::cin,sn);
+                        std::cout << "Function: ";
+                        getline(std::cin,func);
+                        std::cout << "Salary: ";
+                        std::string sal;
+                        getline(std::cin,sal);
+                        salary = std::atoi(sal.c_str());
+        ok.editwrkr(dep,sn,func,salary);
+        ok.print_gopro();
+    }
+    else if (com == "UNDO")
+    {
+    ok.UNDO();
+    cout <<"---------------------UUUUU NNN DDDD OOOO----------------------" << endl;
     ok.print_gopro();
-   // }
+   }
 }
 }
