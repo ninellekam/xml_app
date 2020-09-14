@@ -65,8 +65,13 @@ void    Company::change_department_name(std::string name, std::string newname){
             newdep.change_department(newname);
             dpts[name] = newdep;
         }
+        else 
+            cout << "Already has this dep name: " << newname << endl; 
     }
+    else 
+            cout << "Not Found dep name: " << name << endl; 
 }
+
 void    Company::del_worker(std::string depn,std::string s){
     auto it = dpts.find(depn);
     if (it != dpts.end())

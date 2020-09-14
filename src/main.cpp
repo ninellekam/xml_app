@@ -64,7 +64,7 @@ int main()
     if (com == "LOAD")
     //----------------------load file ---------------------------------- 
     fxml();
-    else if (com == "ADD W")
+    else if (com == "ADD WRK")
     {
     std::cout << "Department:"<<std::endl;
     getline(std::cin,dep);
@@ -84,15 +84,15 @@ int main()
     fxml();
     ok.addwrkr(dep,sn,fn,mn,func,salary);
     worker_in_xml(dep,sn,fn,mn,func,salary);
-    cout <<"------------------------------------------------------" << endl;
+    cout <<"---------------------- A D D   W R K -------------------------" << endl;
     }
-    else if (com == "ADD D")
+    else if (com == "ADD DEP")
     {
         std::cout << "Department:"<<std::endl;
         getline(std::cin,dep);
         ok.adddprtmnt(dep);
         dprmnt_in_xml(dep);
-        cout <<"------------------------------------------------------" << endl;
+        cout <<"-------------------A D D  D E P---------------------------" << endl;
     }
     else if (com == "EDIT")
     {
@@ -113,18 +113,19 @@ int main()
                 salary = std::atoi(sal.c_str());
         ok.editwrkr(dep,sn,func,salary);
         worker_in_xml(dep,sn,fn,mn,func,salary);
+        cout << "---------------------- E D I T  W O R K E R  ------------------------" << endl;
     }
     else if (com == "CHANGE DEP NAME"){
         fxml();
-        ok.print_gopro();
                 std::cout << "Name Department: ";
                 getline(std::cin,dep);
                 std::cout << "Newname: ";
-                getline(std::cin,sn);
-        ok.chngdprtmntname(dep,sn);
-       //chgndepxml(dep,sn);
+                getline(std::cin,sn); 
+        ok.chngdprtmntname("Системное программирование","Пехничек");
+       ChangeDepNameXml(dep,sn);
+       cout << "---------------------- C H A N G E   D E P   N A M E ------------------------" << endl;
     }
-    else if (com =="DEL W"){
+    else if (com =="DEL WRK"){
         fxml();
         std::cout << "Department: ";
                 getline(std::cin,dep);
@@ -136,23 +137,30 @@ int main()
                 getline(std::cin,mn);
         ok.delwrkr(dep, sn);
         RemoveWorker(dep,sn,fn,mn);
+        cout << "----------------------D E L  W R K ------------------------" << endl;
     }
-    else if (com == "DEL D")
+    else if (com == "DEL DEP")
     {
         fxml();
         std::cout << "Department:" << std::endl;
             getline(std::cin,dep);
         ok.deldprtmnt(dep);
         RemoveDep(dep);
-        cout << "------------------------------------------------------" << endl;
+        cout << "----------------------D E L  D E P ------------------------" << endl;
     }
     else if (com == "PRINT")
     {
         ok.print_gopro();
     }
-    else if (com == "UNDO"){
+    else {
+    if (com == "UNDO"){
         ok.UNDO();
-        cout <<"---------------------U N D O ----------------------" << endl;
+        cout <<"--------------------- U N D O ----------------------" << endl;
+    }
+        else if (com == "REDO"){
+            ok.REDO();
+         cout <<"--------------------- R E D O ----------------------" << endl;
+        }
     }
 }
 }

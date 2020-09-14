@@ -180,3 +180,23 @@ int    RemoveWorker(std::string dn,std::string s,std::string f,std::string m){
     return (0);
 }
 
+int     ChangeDepNameXml(std::string dn, std::string newdn){
+     TiXmlDocument doc("txt.xml");
+    int fl = 0;
+    if(!doc.LoadFile()) 
+        return -1;  
+    TiXmlNode *dep = doc.FirstChildElement("departments");
+    for (TiXmlElement *d = dep->FirstChildElement(); d!= nullptr ; d = d->NextSiblingElement())
+    {
+        if (fl == 1)
+            break;
+        if (dn == d->Attribute("name"))
+        {
+            d->TiXmlElement::SetAttribute("name",newdn.c_str());
+            fl = 1;
+        }
+    }
+    doc.SaveFile("txt.xml");
+    return (0);
+}
+
