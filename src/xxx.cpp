@@ -1,5 +1,4 @@
 #include "../inc/xxx.h"
-
 int worker_in_xml(std::string dn, std::string s,std::string f,std::string m,std::string ff,
 int sal)
 {
@@ -111,5 +110,36 @@ void dprmnt_in_xml(std::string dn){
     department->SetAttribute("name",dn.c_str());
     root->LinkEndChild(department);
     xmlDoc.SaveFile("txt.xml");
+}
+
+int    Removedep(std::string dn){
+    TiXmlDocument doc("txt.xml");
+    int fl = 0;
+    if(!doc.LoadFile()) 
+        return -1;  
+    TiXmlNode *dep = doc.FirstChildElement("departments");
+    for (TiXmlElement *d = dep->FirstChildElement(); d!= nullptr ; d = d->NextSiblingElement())
+    {
+        if (fl == 1)
+            break;
+        if (dn == d->Attribute("name"))
+        {
+            d->RemoveAttribute("name");
+            fl = 1;
+            TiXmlNode * employments = d->FirstChildElement("employments");
+            for (TiXmlNode *employment = employments->FirstChildElement();employment!=nullptr; employment=employment->NextSiblingElement())
+            {
+                for (TiXmlElement* element = employment->FirstChildElement() ; element != nullptr ; element = element->NextSiblingElement())
+                {
+                    employment->RemoveChild(element);
+                }
+                employments->RemoveChild(employment);
+            }
+            d->RemoveChild(employments);
+            dep->RemoveChild(d);
+        }
+    }
+    doc.SaveFile("txt.xml");
+    return (0);
 }
 

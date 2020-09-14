@@ -66,7 +66,7 @@ int main()
     fxml();
     else if (com == "ADD W")
     {
-   /* std::cout << "Department:"<<std::endl;
+    std::cout << "Department:"<<std::endl;
     getline(std::cin,dep);
     ok.adddprtmnt(dep);
         std::cout << "Surname:"<<std::endl;
@@ -83,11 +83,11 @@ int main()
     getline(std::cin,sal);
     salary = std::atoi(sal.c_str());
     fxml();
-    ok.addwrkr(dep,sn,fn,mn,func,salary);*/
+    ok.addwrkr(dep,sn,fn,mn,func,salary);
     worker_in_xml(dep,sn,fn,mn,func,salary);
     cout <<"------------------------------------------------------" << endl;
     }
-   /* else if (com == "ADD D")
+    else if (com == "ADD D")
     {
         std::cout << "Department:"<<std::endl;
         getline(std::cin,dep);
@@ -139,6 +139,7 @@ int main()
         std::cout << "Department:" << std::endl;
         getline(std::cin,dep);
         ok.deldprtmnt(dep);
+        Removedep(dep);
         cout << "------------------------------------------------------" << endl;
     }
     else if (com == "PRINT")
@@ -148,6 +149,6 @@ int main()
     else if (com == "UNDO"){
         ok.UNDO();
         cout <<"---------------------UUUUU NNN DDDD OOOO----------------------" << endl;
-    }*/
+    }
 }
 }

@@ -1,9 +1,9 @@
 #pragma once
-#ifndef WORKER_H
-#define WORKER_H
-#include <iostream>
-#include <vector>
-using namespace std;
+#ifndef     WORKER_H
+#define     WORKER_H
+#include    <iostream>
+#include    <vector>
+using       namespace std;
 
 class Worker
 {
