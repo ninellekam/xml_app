@@ -1,6 +1,6 @@
-#ifndef GOPRO_H
-#define GOPRO_H
-#include "../inc/command.h"
+#ifndef     GOPROCESS_H
+#define     GOPROCESS_H
+#include    "../inc/command.h"
 class Gopro {
 
 public:
@@ -27,6 +27,4 @@ void    REDO();
 void    print_gopro();
 };
 
-//void    editwrkr(std::string dpt, std::string swrk, std::string func, int salary);
-//void    change_dprtmnt_name(std::string name, std::string newname);
 #endif

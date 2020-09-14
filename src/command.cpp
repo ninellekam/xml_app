@@ -1,5 +1,5 @@
 #include "../inc/command.h" 
-#include "../inc/xxx.h"
+#include "../inc/xml_codes.h"
 #include "../inc/department.h"
 void    Command::set_company(Company *c){
         comp = c;

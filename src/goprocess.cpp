@@ -1,4 +1,4 @@
-#include "../inc/gopro.h"
+#include "../inc/goprocess.h"
 
 void    Gopro::adddprtmnt(std::string name){
     c = new Adddep(name);

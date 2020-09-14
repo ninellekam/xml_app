@@ -1,4 +1,4 @@
-#include "../inc/xxx.h"
+#include "../inc/xml_codes.h"
 
 int worker_in_xml(std::string dn, std::string s,std::string f,std::string m,std::string ff,
 int sal)
