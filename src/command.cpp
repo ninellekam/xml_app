@@ -1,6 +1,9 @@
+// class of Commands.Needed to implement (undo) (redo) and commands
+// every command action starts from this file
 #include "../inc/command.h" 
 #include "../inc/xml_codes.h"
 #include "../inc/department.h"
+
 void    Command::set_company(Company *c){
         comp = c;
         comp->dpts = c->dpts;
@@ -25,15 +28,16 @@ void Deldep::undo() {
         comp->set_new_department_before_delete(name, dep);
     }
 
-AddWorker::AddWorker(std::string d,std::string s,
-    std::string f,
-    std::string m,
-    std::string ff, int sal) {depn = d ; swrk = s; 
+AddWorker::AddWorker(std::string d,std::string s, std::string f, std::string m, std::string ff, int sal){
+    depn = d; 
+    swrk = s; 
     fwrk = f; 
-    mwrk = m; func = ff; salary = sal;}
+    mwrk = m; 
+    func = ff; 
+    salary = sal;
+}
 void AddWorker::redo() {
         comp->add_worker(depn,swrk,fwrk,mwrk,func,salary);
-      //  worker_in_xml(depn, swrk, fwrk, mwrk, func, salary);
     }
 void AddWorker::undo() {
        comp->del_worker(depn,swrk);
@@ -62,14 +66,16 @@ EditWorker::EditWorker(std::string d,
     std::string m,
     std::string fun,
     int sal) {
-        dpt = d; swrk = s; fwrk = f; mwrk = m;
+        dpt = d;
+        swrk = s;
+        fwrk = f; 
+        mwrk = m;
         preds = swrk;
         predfunc=f; predsalary=sal;
         func = fun; salary = sal; 
 }
 void    EditWorker::redo() {
         predfunc = comp->find_worker(dpt,swrk).function;
-        cout << "pred " << predfunc << endl;
         predsalary = comp->find_worker(dpt,swrk).salary;
         comp->edit_worker(dpt,swrk,func,salary);
         RemoveWorker(dpt,swrk,fwrk,mwrk);
@@ -92,6 +98,6 @@ void ChangeDepName::redo(){
         ChangeDepNameXml(name, newname);
 }
 void ChangeDepName::undo(){
-    comp->change_department_name(newname, name);
+    comp->change_department_name(name, newname);
     ChangeDepNameXml(newname, name);
 }

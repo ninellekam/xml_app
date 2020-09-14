@@ -1,3 +1,5 @@
+//here is a map of all departments and commands 
+//for execution with these departments through the above specified class of commands.
 #include "../inc/company.h"
 
 void    Company::add_worker(std::string depn,std::string s,
@@ -66,10 +68,11 @@ void    Company::change_department_name(std::string name, std::string newname){
             dpts[name] = newdep;
         }
         else 
-            cout << "Already has this dep name: " << newname << endl; 
+            std::logic_error("Already has this dep name: " + newname) ; 
     }
     else 
-            cout << "Not Found dep name: " << name << endl; 
+        cout << "no";
+    std::logic_error("Not Found dep name: " + name) ;  
 }
 
 void    Company::del_worker(std::string depn,std::string s){
@@ -87,7 +90,7 @@ Worker   Company::find_worker(std::string depn,std::string s) {
         w = it->second.workers[s];
     }
     else
-        cout<<"not found department";
+        std::logic_error("not found department");
     return w;
 }
 

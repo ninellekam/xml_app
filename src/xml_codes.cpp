@@ -7,7 +7,6 @@ int sal)
     XMLError eResult = xmlDoc.LoadFile("txt.xml");
     if (eResult != XML_SUCCESS) 
         return   -1;
-    cout << "gggg";
     XMLNode * root = xmlDoc.FirstChildElement("departments");
     if (root == nullptr) return -1;
 
@@ -153,23 +152,21 @@ int    RemoveWorker(std::string dn,std::string s,std::string f,std::string m){
     TiXmlNode *dep = doc.FirstChildElement("departments");
     for (TiXmlElement *d = dep->FirstChildElement(); d!= nullptr ; d = d->NextSiblingElement())
     {
-        cout << "HERE";
         if (fl == 1)
             break;
         if (dn == d->Attribute("name"))
         {
-            cout << " dep name : " << dn ;
             TiXmlNode * employments = d->FirstChildElement("employments");
             for (TiXmlNode *employment = employments->FirstChildElement();employment!=nullptr; employment=employment->NextSiblingElement())
             {
                 for (TiXmlElement* element = employment->FirstChildElement() ; element != nullptr ; element = element->NextSiblingElement())
                 {
-                    if (element->GetText() == s)
+                    if (element->GetText() == s){
                         employment->RemoveChild(element);
+                    }
                     else if (element->GetText() == f)
                         employment->RemoveChild(element);
-                    else if (element->GetText() == m)
-                    {
+                    else if (element->GetText() == m){
                         employment->RemoveChild(element);
                         fl = 1;
                     }

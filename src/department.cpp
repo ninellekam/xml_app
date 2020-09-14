@@ -1,6 +1,10 @@
 #include "../inc/department.h"
 
-Department::Department(std::string dn) { depName = dn; countWorkers = 0; avgSalary = 0;}
+Department::Department(std::string dn) { 
+    depName = dn; 
+    countWorkers = 0; 
+    avgSalary = 0;
+}
 
 Department::Department(std::string dn, Worker wrkrs){
     depName = dn;
@@ -64,8 +68,8 @@ void    Department::addworker(Worker wrkr){
     }
 void    Department::print_department(){
     std::cout<< "\vDepartment:" << depName << std::endl;
-    std::cout << "\vСount of workers: " << getCountWorkers() << std::endl;
-    std::cout << "\vAvg Salary: " << getavgSalary() << std::endl;
+    std::cout << "Сount of workers: " << getCountWorkers() << std::endl;
+    std::cout << "Avg Salary: " << getavgSalary() << std::endl;
     int c = 0;
     for (auto it = workers.begin() ; it!= workers.end() ; it++)
     {
