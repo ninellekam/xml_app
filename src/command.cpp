@@ -1,6 +1,6 @@
 #include "../inc/command.h" 
 #include "../inc/xxx.h"
-
+#include "../inc/department.h"
 void    Command::set_company(Company *c){
         comp = c;
         comp->dpts = c->dpts;
@@ -8,7 +8,6 @@ void    Command::set_company(Company *c){
 Adddep::Adddep(std::string n) {name = n;}
 void Adddep::redo() {
         comp->add_department(name);
-       // dprmnt_in_xml(name);
     }
 void Adddep::undo() {
         comp->delete_department(name);
@@ -19,16 +18,12 @@ Deldep::Deldep(std::string n) { name = n;}
 void Deldep::redo() {
         dep = comp->find_dpt(name);
         comp->delete_department(name);
-        RemoveDep(name);
+     //   RemoveDep(name);
     }
 void Deldep::undo() {
-         comp->set_new_department_before_delete(name, dep);
-         // set new dprtmnt in xml !!!!!!
+        SetDep(name , dep);
+        comp->set_new_department_before_delete(name, dep);
     }
-
-
-
-
 
 AddWorker::AddWorker(std::string d,std::string s,
     std::string f,

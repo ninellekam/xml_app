@@ -117,10 +117,10 @@ int main()
     }
     else if (com == "CHANGE DEP NAME"){
         fxml();
-                // std::cout << "Name Department: ";
-                // getline(std::cin,dep);
-                // std::cout << "Newname: ";
-                // getline(std::cin,sn); 
+                std::cout << "Name Department: ";
+                getline(std::cin,dep);
+                std::cout << "Newname: ";
+                getline(std::cin,sn); 
         ok.chngdprtmntname("Дизайнерский отдел","Пехничек");
        cout << "---------------------- C H A N G E   D E P   N A M E ------------------------" << endl;
     }

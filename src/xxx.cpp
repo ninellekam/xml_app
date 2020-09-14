@@ -1,4 +1,5 @@
 #include "../inc/xxx.h"
+
 int worker_in_xml(std::string dn, std::string s,std::string f,std::string m,std::string ff,
 int sal)
 {
@@ -172,7 +173,6 @@ int    RemoveWorker(std::string dn,std::string s,std::string f,std::string m){
                         employment->RemoveChild(element);
                         fl = 1;
                     }
-                    
                 }
                 if (fl == 1)
                 {
@@ -212,18 +212,31 @@ int    RemoveDepName(std::string dn){
     if(!doc.LoadFile()) 
         return -1;  
     TiXmlNode *dep = doc.FirstChildElement("departments");
-    cout << "remodedepname";
     for (TiXmlElement *d = dep->FirstChildElement(); d!= nullptr ; d = d->NextSiblingElement())
     {
-        cout << "Here";
         if (fl == 1)
+        {
+            dep->RemoveChild(d);
             break;
+        }
         if (dn == d->Attribute("name"))
         {
             cout << " find ";
-            d->RemoveAttribute("name");
+            dep->RemoveChild(d);
             fl = 1;
         }
+    }
+    doc.SaveFile("txt.xml");
+    return (0);
+}
+
+
+int     SetDep(std::string depname , Department &dep) {
+
+    for (auto it = dep.workers.begin() ; it != dep.workers.end() ; it++ )
+    {
+        worker_in_xml(depname, it->second.secondName , it->second.firstName , it->second.middleName,
+        it->second.function, it->second.salary);
     }
     return (0);
 }
