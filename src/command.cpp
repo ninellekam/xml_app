@@ -14,11 +14,16 @@ void Adddep::undo() {
 
 Deldep::Deldep(std::string n) { name = n;}
 void Deldep::redo() {
+        dep = comp->find_dpt(name);
         comp->delete_department(name);
     }
 void Deldep::undo() {
-         comp->add_department(name);
+         comp->set_new_department_before_delete(name, dep);
     }
+
+
+
+
 
 AddWorker::AddWorker(std::string d,std::string s,
     std::string f,

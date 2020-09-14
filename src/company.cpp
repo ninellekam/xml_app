@@ -36,9 +36,12 @@ void    Company::delete_department(std::string name){
     if (it != dpts.end())
         dpts.erase(it);
     else
-         std::logic_error("ERROR : department name:" + name + "NOT FOUND");   
+        std::logic_error( "ERROR : department name:" + name + "NOT FOUND");   
 }
 
+void    Company::set_new_department_before_delete(std::string name, Department dep){
+    dpts[name] = dep;
+}
 
 void    Company::edit_worker(std::string dpt, std::string swrk, std::string func, int salary){
     auto it = dpts.find(dpt);
@@ -98,4 +101,6 @@ void    Company::print_comp() {
         it->second.print_department();
     }
 }
+
+
 

@@ -23,6 +23,7 @@ void        edit_worker(std::string dpt, std::string swrk, std::string func, int
 void        change_department_name(std::string name, std::string newname);
 Department  find_dpt (std::string name);
 Company&    operator= ( Company &other);
+void        set_new_department_before_delete(std::string name, Department dep);
 void        print_comp();
 };
 

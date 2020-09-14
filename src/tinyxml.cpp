@@ -64,39 +64,48 @@ int main()
     if (com == "LOAD")
     //----------------------load file ---------------------------------- 
     fxml();
-    else if (com == "ADD")
+    else if (com == "ADD W")
     {
-    // std::cout << "Department:"<<std::endl;
-    // getline(std::cin,dep);
-    // ok.adddprtmnt(dep);
-    //     std::cout << "Surname:"<<std::endl;
-    // getline(std::cin,sn);
-    //     std::cout << "Firstname:"<<std::endl;
-    // getline(std::cin,fn);
-    //     std::cout << "Middlename:"<<std::endl;
-    // getline(std::cin,mn);
-    //     std::cout << "Function:"<<std::endl;
-    // getline(std::cin,func);
-    //     std::cout << "Salary:"<<std::endl;
-    // int salary;
-    // std::string sal;
-    // getline(std::cin,sal);
-    // salary = std::atoi(sal.c_str());
-    if_dprtmnt_no_in_xml("nina","nina","nina","nina","nina",350000);
-   // in_xml(dep,sn,fn,mn,func,salary);
-  //  fxml();
-  //  ok.addwrkr(dep,sn,fn,mn,func,salary);
-   // ok.print_gopro();
+   /* std::cout << "Department:"<<std::endl;
+    getline(std::cin,dep);
+    ok.adddprtmnt(dep);
+        std::cout << "Surname:"<<std::endl;
+    getline(std::cin,sn);
+        std::cout << "Firstname:"<<std::endl;
+    getline(std::cin,fn);
+        std::cout << "Middlename:"<<std::endl;
+    getline(std::cin,mn);
+        std::cout << "Function:"<<std::endl;
+    getline(std::cin,func);
+        std::cout << "Salary:"<<std::endl;
+    int salary;
+    std::string sal;
+    getline(std::cin,sal);
+    salary = std::atoi(sal.c_str());
+    fxml();
+    ok.addwrkr(dep,sn,fn,mn,func,salary);*/
+    worker_in_xml(dep,sn,fn,mn,func,salary);
     cout <<"------------------------------------------------------" << endl;
-    cout <<"------------------------------------------------------" << endl;
+    }
+   /* else if (com == "ADD D")
+    {
+        std::cout << "Department:"<<std::endl;
+        getline(std::cin,dep);
+        ok.adddprtmnt(dep);
+        dprmnt_in_xml(dep);
+        cout <<"------------------------------------------------------" << endl;
     }
     else if (com == "EDIT")
     {
         fxml();
                 std::cout << "Department: ";
-                getline(std::cin,dep);
+                    getline(std::cin,dep);
                 std::cout << "Surname: ";
-                getline(std::cin,sn);
+                    getline(std::cin,sn);
+                   std::cout << "Firstname:"<<std::endl;
+                getline(std::cin,fn);
+                std::cout << "Middlename:"<<std::endl;
+                    getline(std::cin,mn);
                 std::cout << "New Function: ";
                 getline(std::cin,func);
                 std::cout << "New Salary: ";
@@ -104,9 +113,9 @@ int main()
                 getline(std::cin,sal);
                 salary = std::atoi(sal.c_str());
         ok.editwrkr(dep,sn,func,salary);
-        ok.print_gopro();
+        worker_in_xml(dep,sn,fn,mn,func,salary);
     }
-    else if (com == "CHANGE"){
+    else if (com == "CHANGE DEP NAME"){
         fxml();
         ok.print_gopro();
                 std::cout << "Name Department: ";
@@ -114,9 +123,9 @@ int main()
                 std::cout << "Newname: ";
                 getline(std::cin,sn);
         ok.chngdprtmntname(dep,sn);
-        //ok.print_gopro();
+       //chgndepxml(dep,sn);
     }
-    else if (com =="DELW"){
+    else if (com =="DEL W"){
         fxml();
         std::cout << "Department: ";
                 getline(std::cin,dep);
@@ -124,10 +133,21 @@ int main()
             getline(std::cin,sn);
         ok.delwrkr(dep, sn);
     }
+    else if (com == "DEL D")
+    {
+        fxml();
+        std::cout << "Department:" << std::endl;
+        getline(std::cin,dep);
+        ok.deldprtmnt(dep);
+        cout << "------------------------------------------------------" << endl;
+    }
+    else if (com == "PRINT")
+    {
+        ok.print_gopro();
+    }
     else if (com == "UNDO"){
         ok.UNDO();
         cout <<"---------------------UUUUU NNN DDDD OOOO----------------------" << endl;
-        ok.print_gopro();
-    }
+    }*/
 }
 }

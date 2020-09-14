@@ -5,7 +5,7 @@
 #include <vector>
 #include <map>
 #include "../inc/company.h"
-
+#include "../inc/xxx.h"
 
 class Command {
     public:
@@ -25,6 +25,7 @@ class Adddep : public Command {
 class Deldep: public Command {
     public:
     std::string name;
+    Department dep;
     Deldep(std::string n);
     void redo();
     void undo();
