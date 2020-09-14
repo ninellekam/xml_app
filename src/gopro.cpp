@@ -40,12 +40,12 @@ void    Gopro::chngdprtmntname(std::string name, std::string newname)
 void    Gopro::editwrkr(std::string d,
     std::string s,
     std::string f,
+    std::string m,
+    std::string func,
     int sal) {
-    c = new EditWorker(d,s,f,sal);
-    cout << "ffff" <<endl;
+    c = new EditWorker(d,s,f,m,func,sal);
     c->set_company(&com);
     c->redo();
-    cout << "lll" <<endl;
     Do_Com.push_back(c);
     }
 

@@ -10,3 +10,4 @@ void    dprmnt_in_xml(std::string dn);
 int     RemoveDep(std::string dn);
 int     RemoveWorker(std::string dn,std::string s,std::string f,std::string m);
 int     ChangeDepNameXml(std::string dn, std::string newdn);
+int     RemoveDepName(std::string dn);

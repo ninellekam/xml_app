@@ -18,6 +18,8 @@ void    deldprtmnt(std::string name);
 void    editwrkr(std::string d,
     std::string s,
     std::string f,
+    std::string m,
+    std::string func,
     int sal);
 void    chngdprtmntname(std::string name, std::string newname);
 void    UNDO();

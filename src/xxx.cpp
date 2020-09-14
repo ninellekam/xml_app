@@ -16,13 +16,11 @@ for (XMLElement *department = root->FirstChildElement(); department!=nullptr; de
 {  
     std::string depname;
     depname = department->Attribute("name");
-    cout << depname ;
     if (fl == 1)
         break;
     if  (depname == dn)
     {
         fl = 1;
-        cout << " ok " ;
         XMLElement *employments = department->FirstChildElement("employments");
         XMLElement *employmentElement = xmlDoc.NewElement("employment");
         XMLElement *element = xmlDoc.NewElement("surname");
@@ -107,8 +105,11 @@ void dprmnt_in_xml(std::string dn){
     XMLError eResult = xmlDoc.LoadFile("txt.xml");
     XMLNode * root = xmlDoc.FirstChildElement("departments");
     XMLElement *department = xmlDoc.NewElement("department");
+    XMLNode * dep = xmlDoc.NewElement("department");
+   // XMLNode * empl = xmlDoc.FirstChildElement("employments");
     department->SetAttribute("name",dn.c_str());
     root->LinkEndChild(department);
+    root->LinkEndChild(dep);
     xmlDoc.SaveFile("txt.xml");
 }
 
@@ -151,10 +152,12 @@ int    RemoveWorker(std::string dn,std::string s,std::string f,std::string m){
     TiXmlNode *dep = doc.FirstChildElement("departments");
     for (TiXmlElement *d = dep->FirstChildElement(); d!= nullptr ; d = d->NextSiblingElement())
     {
+        cout << "HERE";
         if (fl == 1)
             break;
         if (dn == d->Attribute("name"))
         {
+            cout << " dep name : " << dn ;
             TiXmlNode * employments = d->FirstChildElement("employments");
             for (TiXmlNode *employment = employments->FirstChildElement();employment!=nullptr; employment=employment->NextSiblingElement())
             {
@@ -165,8 +168,11 @@ int    RemoveWorker(std::string dn,std::string s,std::string f,std::string m){
                     else if (element->GetText() == f)
                         employment->RemoveChild(element);
                     else if (element->GetText() == m)
+                    {
                         employment->RemoveChild(element);
-                    fl = 1;
+                        fl = 1;
+                    }
+                    
                 }
                 if (fl == 1)
                 {
@@ -197,6 +203,28 @@ int     ChangeDepNameXml(std::string dn, std::string newdn){
         }
     }
     doc.SaveFile("txt.xml");
+    return (0);
+}
+
+int    RemoveDepName(std::string dn){
+    TiXmlDocument doc("txt.xml");
+    int fl = 0;
+    if(!doc.LoadFile()) 
+        return -1;  
+    TiXmlNode *dep = doc.FirstChildElement("departments");
+    cout << "remodedepname";
+    for (TiXmlElement *d = dep->FirstChildElement(); d!= nullptr ; d = d->NextSiblingElement())
+    {
+        cout << "Here";
+        if (fl == 1)
+            break;
+        if (dn == d->Attribute("name"))
+        {
+            cout << " find ";
+            d->RemoveAttribute("name");
+            fl = 1;
+        }
+    }
     return (0);
 }
 
