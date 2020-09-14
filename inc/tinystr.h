@@ -172,9 +172,9 @@ class TiXmlString
 	}
 
 	// find a char in a string. Return TiXmlString::npos if not found
-	size_type find (char lookup) const
+	size_type find (char loprocessup) const
 	{
-		return find(lookup, 0);
+		return find(loprocessup, 0);
 	}
 
 	// find a char in a string from an offset. Return TiXmlString::npos if not found

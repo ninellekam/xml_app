@@ -6,7 +6,7 @@ using namespace std;
 using namespace tinyxml2;
 
 
-Gopro ok;
+Gopro process;
 int fxml()
 {
     XMLDocument xmlDoc;
@@ -22,7 +22,7 @@ int fxml()
     {    
         Department dp;
         dp.depName = department->Attribute("name") ; 
-        ok.adddprtmnt(dp.depName);
+        process.adddprtmnt(dp.depName);
 
         XMLNode * employments = department->FirstChildElement("employments");
         Worker wrk;
@@ -43,7 +43,7 @@ int fxml()
                     wrk.salary =  atoi(element->GetText()) ;
             }
             dp.addworker(wrk);
-            ok.addwrkr(dp.depName,wrk.secondName,
+            process.addwrkr(dp.depName,wrk.secondName,
             wrk.firstName,
             wrk.middleName,wrk.function,wrk.salary);
         }
@@ -70,7 +70,7 @@ int main()
     {
     std::cout << "Department:"<<std::endl;
     getline(std::cin,dep);
-    ok.adddprtmnt(dep);
+    process.adddprtmnt(dep);
         std::cout << "Surname:"<<std::endl;
     getline(std::cin,sn);
         std::cout << "Firstname:"<<std::endl;
@@ -84,7 +84,7 @@ int main()
         getline(std::cin,sal);
     salary = std::atoi(sal.c_str());
     fxml();
-        ok.addwrkr(dep,sn,fn,mn,func,salary);
+        process.addwrkr(dep,sn,fn,mn,func,salary);
         worker_in_xml(dep,sn,fn,mn,func,salary);
         RemoveWorker(dep,sn,fn,mn);
     cout <<"---------------------- A D D   W R K -------------------------" << endl;
@@ -93,7 +93,7 @@ int main()
     {
         std::cout << "Department:"<<std::endl;
         getline(std::cin,dep);
-        ok.adddprtmnt(dep);
+        process.adddprtmnt(dep);
         dprmnt_in_xml(dep);
         cout <<"-------------------A D D  D E P---------------------------" << endl;
     }
@@ -114,7 +114,7 @@ int main()
                 std::string sal;
                     getline(std::cin,sal);
                 salary = std::atoi(sal.c_str());
-        ok.editwrkr(dep,sn,fn,mn,func,salary);
+        process.editwrkr(dep,sn,fn,mn,func,salary);
         cout << "---------------------- E D I T  W O R K E R  ------------------------" << endl;
     }
     else if (com == "CHANGE DEP NAME"){
@@ -123,7 +123,7 @@ int main()
                 getline(std::cin,dep);
                 std::cout << "Newname: ";
                 getline(std::cin,sn); 
-        ok.chngdprtmntname("Дизайнерский отдел","Пехничек");
+        process.chngdprtmntname("Дизайнерский отдел","Пехничек");
        cout << "---------------------- C H A N G E   D E P   N A M E ------------------------" << endl;
     }
     else if (com =="DEL WRK"){
@@ -136,7 +136,7 @@ int main()
                 getline(std::cin,fn);
         std::cout << "Middlename:"<<std::endl;
                 getline(std::cin,mn);
-        ok.delwrkr(dep, sn);
+        process.delwrkr(dep, sn);
         RemoveWorker(dep,sn,fn,mn);
         cout << "----------------------D E L  W R K ------------------------" << endl;
     }
@@ -145,21 +145,21 @@ int main()
         fxml();
         std::cout << "Department:" << std::endl;
             getline(std::cin,dep);
-        ok.deldprtmnt(dep);
+        process.deldprtmnt(dep);
         RemoveDep(dep);
         cout << "----------------------D E L  D E P ------------------------" << endl;
     }
     else if (com == "PRINT")
     {
-        ok.print_gopro();
+        process.print_gopro();
     }
     else {
     if (com == "UNDO"){
-        ok.UNDO();
+        process.UNDO();
         cout <<"--------------------- U N D O ----------------------" << endl;
     }
         else if (com == "REDO"){
-            ok.REDO();
+            process.REDO();
          cout <<"--------------------- R E D O ----------------------" << endl;
         }
     }

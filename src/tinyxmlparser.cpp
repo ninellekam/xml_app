@@ -928,7 +928,7 @@ void TiXmlElement::StreamIn (std::istream * in, TIXML_STRING * tag)
 
 	if ( tag->length() < 3 ) return;
 
-	// Okay...if we are a "/>" tag, then we're done. We've read a complete tag.
+	// processay...if we are a "/>" tag, then we're done. We've read a complete tag.
 	// If not, identify and stream.
 
 	if (    tag->at( tag->length() - 1 ) == '>' 
@@ -941,7 +941,7 @@ void TiXmlElement::StreamIn (std::istream * in, TIXML_STRING * tag)
 	{
 		// There is more. Could be:
 		//		text
-		//		cdata text (which looks like another node)
+		//		cdata text (which loprocesss like another node)
 		//		closing tag
 		//		another node.
 		for ( ;; )
@@ -1085,7 +1085,7 @@ const char* TiXmlElement::Parse( const char* p, TiXmlParsingData* data, TiXmlEnc
 	endTag += value;
 	endTag += ">";
 
-	// Check for and read attributes. Also look for an empty
+	// Check for and read attributes. Also loprocess for an empty
 	// tag or an end tag.
 	while ( p && *p )
 	{
@@ -1115,7 +1115,7 @@ const char* TiXmlElement::Parse( const char* p, TiXmlParsingData* data, TiXmlEnc
 			++p;
 			p = ReadValue( p, data, encoding );		// Note this is an Element method, and will set the error if one happens.
 			if ( !p || !*p ) {
-				// We were looking for the end tag, but found nothing.
+				// We were loprocessing for the end tag, but found nothing.
 				// Fix for [ 1663758 ] Failure to report error on bad XML
 				if ( document ) document->SetError( TIXML_ERROR_READING_END_TAG, p, data, encoding );
 				return 0;
@@ -1572,7 +1572,7 @@ void TiXmlDeclaration::StreamIn( std::istream * in, TIXML_STRING * tag )
 const char* TiXmlDeclaration::Parse( const char* p, TiXmlParsingData* data, TiXmlEncoding _encoding )
 {
 	p = SkipWhiteSpace( p, _encoding );
-	// Find the beginning, find the end, and look for
+	// Find the beginning, find the end, and loprocess for
 	// the stuff in-between.
 	TiXmlDocument* document = GetDocument();
 	if ( !p || !*p || !StringEqual( p, "<?xml", true, _encoding ) )

@@ -2010,7 +2010,7 @@ inline NodeType* XMLDocument::CreateUnlinkedNode( MemPoolT<PoolElementSize>& poo
 	@endverbatim
 
 	Assuming you want the value of "attributeB" in the 2nd "Child" element, it's very
-	easy to write a *lot* of code that looks like:
+	easy to write a *lot* of code that loprocesss like:
 
 	@verbatim
 	XMLElement* root = document.FirstChildElement( "Document" );

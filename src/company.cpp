@@ -4,10 +4,10 @@ void    Company::add_worker(std::string depn,std::string s,
                                              std::string f,
                                              std::string m,
                                              std::string func, int sal){
-    Worker ok(s,f,m,func,sal);
+    Worker process(s,f,m,func,sal);
     auto it = dpts.find(depn);
     if (it != dpts.end())
-        it->second.addworker(ok);
+        it->second.addworker(process);
 }
 Company& Company::operator= (Company &other) {
         dpts = other.dpts;
@@ -58,8 +58,8 @@ void    Company::change_department_name(std::string name, std::string newname){
     auto it = dpts.find(name);
     if (it != dpts.end())
     {
-        auto ok = dpts.find(newname);
-        if (ok == dpts.end())
+        auto process = dpts.find(newname);
+        if (process == dpts.end())
         {
             Department newdep(it->second);
             newdep.change_department(newname);

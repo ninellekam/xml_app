@@ -2595,7 +2595,7 @@ void XMLPrinter::PrintSpace( int depth )
 
 void XMLPrinter::PrintString( const char* p, bool restricted )
 {
-    // Look for runs of bytes between entities to print.
+    // Loprocess for runs of bytes between entities to print.
     const char* q = p;
 
     if ( _processEntities ) {
@@ -2606,7 +2606,7 @@ void XMLPrinter::PrintString( const char* p, bool restricted )
             if ( *q > 0 && *q < ENTITY_RANGE ) {
                 // Check for entities. If one is found, flush
                 // the stream up until the entity, write the
-                // entity, and keep looking.
+                // entity, and keep loprocessing.
                 if ( flag[static_cast<unsigned char>(*q)] ) {
                     while ( p < q ) {
                         const size_t delta = q - p;

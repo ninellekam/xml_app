@@ -775,7 +775,7 @@ private:
 
 	@note The attributes are not TiXmlNodes, since they are not
 		  part of the tinyXML document object model. There are other
-		  suggested ways to look at this problem.
+		  suggested ways to loprocess at this problem.
 */
 class TiXmlAttribute : public TiXmlBase
 {
@@ -1567,7 +1567,7 @@ private:
 	@endverbatim
 
 	Assuming you want the value of "attributeB" in the 2nd "Child" element, it's very 
-	easy to write a *lot* of code that looks like:
+	easy to write a *lot* of code that loprocesss like:
 
 	@verbatim
 	TiXmlElement* root = document.FirstChildElement( "Document" );

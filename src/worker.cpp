@@ -21,11 +21,11 @@ Worker::Worker(std::string sn, std::string fn, std::string mn, std::string func,
     salary = sal;
 }
 /*vector <std::string>     Worker::getName() {
-    vector<std::string> ok;
-    ok.push_back(secondName); // 0
-    ok.push_back(firstName); // 1
-    ok.push_back(middleName);// 2
-    return  ok;
+    vector<std::string> process;
+    process.push_back(secondName); // 0
+    process.push_back(firstName); // 1
+    process.push_back(middleName);// 2
+    return  process;
 }*/
 unsigned int            Worker::getSalary(){
 
