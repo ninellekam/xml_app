@@ -123,7 +123,7 @@ int main()
                 getline(std::cin,dep);
                 std::cout << "Newname: ";
                 getline(std::cin,sn); 
-        process.chngdprtmntname("Дизайнерский отдел","Пехничек");
+        process.chngdprtmntname(dep, sn);
        cout << "---------------------- C H A N G E   D E P   N A M E ------------------------" << endl;
     }
     else if (com =="DEL WRK"){
