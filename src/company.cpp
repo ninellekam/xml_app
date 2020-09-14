@@ -72,7 +72,6 @@ void    Company::del_worker(std::string depn,std::string s){
     if (it != dpts.end())
     {
         it->second.delworker(s);
-      // dpts.erase(it);
     }
 }
 Worker   Company::find_worker(std::string depn,std::string s) {
@@ -83,7 +82,7 @@ Worker   Company::find_worker(std::string depn,std::string s) {
         w = it->second.workers[s];
     }
     else
-    cout<<"not found department";
+        cout<<"not found department";
     return w;
 }
 

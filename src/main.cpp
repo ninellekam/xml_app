@@ -10,7 +10,7 @@ int fxml()
 {
     XMLDocument xmlDoc;
 
-    XMLError eResult = xmlDoc.LoadFile("tst.xml");
+    XMLError eResult = xmlDoc.LoadFile("txt.xml");
 
     if (eResult != XML_SUCCESS) return -1;
 
@@ -78,9 +78,8 @@ int main()
         std::cout << "Function:"<<std::endl;
     getline(std::cin,func);
         std::cout << "Salary:"<<std::endl;
-    int salary;
     std::string sal;
-    getline(std::cin,sal);
+        getline(std::cin,sal);
     salary = std::atoi(sal.c_str());
     fxml();
     ok.addwrkr(dep,sn,fn,mn,func,salary);
@@ -108,9 +107,9 @@ int main()
                     getline(std::cin,mn);
                 std::cout << "New Function: ";
                 getline(std::cin,func);
-                std::cout << "New Salary: ";
+                    std::cout << "New Salary: ";
                 std::string sal;
-                getline(std::cin,sal);
+                    getline(std::cin,sal);
                 salary = std::atoi(sal.c_str());
         ok.editwrkr(dep,sn,func,salary);
         worker_in_xml(dep,sn,fn,mn,func,salary);
@@ -131,15 +130,20 @@ int main()
                 getline(std::cin,dep);
         std::cout << "Surname:"<<std::endl;
             getline(std::cin,sn);
+        std::cout << "Firstname:"<<std::endl;
+                getline(std::cin,fn);
+        std::cout << "Middlename:"<<std::endl;
+                getline(std::cin,mn);
         ok.delwrkr(dep, sn);
+        RemoveWorker(dep,sn,fn,mn);
     }
     else if (com == "DEL D")
     {
         fxml();
         std::cout << "Department:" << std::endl;
-        getline(std::cin,dep);
+            getline(std::cin,dep);
         ok.deldprtmnt(dep);
-        Removedep(dep);
+        RemoveDep(dep);
         cout << "------------------------------------------------------" << endl;
     }
     else if (com == "PRINT")
@@ -148,7 +152,7 @@ int main()
     }
     else if (com == "UNDO"){
         ok.UNDO();
-        cout <<"---------------------UUUUU NNN DDDD OOOO----------------------" << endl;
+        cout <<"---------------------U N D O ----------------------" << endl;
     }
 }
 }

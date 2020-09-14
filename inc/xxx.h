@@ -7,4 +7,5 @@ using       namespace tinyxml2;
 
 int     worker_in_xml(std::string dn, std::string s,std::string f,std::string m,std::string ff, int sal);
 void    dprmnt_in_xml(std::string dn);
-int     Removedep(std::string dn);
+int     RemoveDep(std::string dn);
+int     RemoveWorker(std::string dn,std::string s,std::string f,std::string m);
