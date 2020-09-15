@@ -77,7 +77,6 @@ int main()
         std::getline(std::cin,sal);
         salary = std::atoi(sal.c_str());
         process.addwrkr(dep,sn,fn,mn,func,salary);
-       // process.addwrkr("Системное программирование","gg","h","k","y",7);
     cout <<"---------------------- A D D   W R K -------------------------" << endl;
     }
     else if (com == "ADD DEP")
