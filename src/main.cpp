@@ -135,7 +135,6 @@ int main()
         std::cout << "Middlename:"<<std::endl;
         std::getline(std::cin,mn);
         process.delwrkr(dep, sn);
-        RemoveWorker(dep,sn,fn,mn);
         cout << "----------------------D E L  W R K ------------------------" << endl;
     }
     else if (com == "DEL DEP")
