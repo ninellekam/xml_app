@@ -144,7 +144,6 @@ int main()
         std::cout << "Department:" << std::endl;
         std::getline(std::cin,dep);
         process.deldprtmnt(dep);
-        RemoveDep(dep);
         cout << "----------------------D E L  D E P ------------------------" << endl;
     }
     else if (com == "PRINT")

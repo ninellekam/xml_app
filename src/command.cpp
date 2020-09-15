@@ -21,7 +21,7 @@ Deldep::Deldep(std::string n) { name = n;}
 void Deldep::redo() {
         dep = comp->find_dpt(name);
         comp->delete_department(name);
-     //   RemoveDep(name);
+        RemoveDep(name);
     }
 void Deldep::undo() {
         SetDep(name , dep);

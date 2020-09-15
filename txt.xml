@@ -95,43 +95,44 @@
     <department name="Системное программирование">
         <employments>
             <employment>
+                <surname/>
                 <name>Ольга</name>
-                <middleName>Валерьевна</middleName>
+                <middlename>Валерьевна</middlename>
+                <function>Заместитель руководителя отдела</function>
+                <salary>80000</salary>
+            </employment>
+            <employment>
+                <surname>Величко</surname>
+                <name>Максим</name>
+                <middlename>Евгеньевич</middlename>
                 <function>Заместитель руководителя отдела</function>
                 <salary>80000</salary>
             </employment>
             <employment>
                 <surname>Гаврилов</surname>
                 <name>Роман</name>
-                <middleName>Николаевич</middleName>
+                <middlename>Николаевич</middlename>
                 <function>Системный программист Windows</function>
                 <salary>50000</salary>
             </employment>
             <employment>
                 <surname>Долгов</surname>
                 <name>Николай</name>
-                <middleName>Алексеевич</middleName>
+                <middlename>Алексеевич</middlename>
                 <function>Системный программист Windows</function>
                 <salary>50000</salary>
             </employment>
             <employment>
                 <surname>Дюков</surname>
                 <name>Владимир</name>
-                <middleName>Евгеньевич</middleName>
+                <middlename>Евгеньевич</middlename>
                 <function>Системный программист Linux</function>
                 <salary>50000</salary>
             </employment>
             <employment>
-                <surname>Величко</surname>
-                <name>Максим</name>
-                <middlename>Викторович</middlename>
-                <function>Заместитель руководителя отдела</function>
-                <salary>80000</salary>
-            </employment>
-            <employment>
                 <surname>Емельянов</surname>
                 <name>Дмитрий</name>
-                <middlename>Юрьевич</middlename>
+                <middlename>Евгеньевич</middlename>
                 <function>Системный программист Linux</function>
                 <salary>50000</salary>
             </employment>
