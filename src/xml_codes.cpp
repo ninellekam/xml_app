@@ -105,11 +105,17 @@ void dprmnt_in_xml(std::string dn){
     XMLError eResult = xmlDoc.LoadFile("txt.xml");
     XMLNode * root = xmlDoc.FirstChildElement("departments");
     XMLElement *department = xmlDoc.NewElement("department");
+
     XMLNode * dep = xmlDoc.NewElement("department");
-   // XMLNode * empl = xmlDoc.FirstChildElement("employments");
     department->SetAttribute("name",dn.c_str());
+
+    XMLElement *employments = xmlDoc.NewElement("employments");
+    department->LinkEndChild(employments);
+
+    XMLElement *employmentElement = xmlDoc.NewElement("employment");
+    employments->LinkEndChild(employmentElement); 
+
     root->LinkEndChild(department);
-    root->LinkEndChild(dep);
     xmlDoc.SaveFile("txt.xml");
 }
 

@@ -1,4 +1,4 @@
-# Hello, world!
+# README
 
 
 ## Task 1 and Task 2 
@@ -20,6 +20,7 @@
 ### My_Comments
 
 In the Task2 I wrote several insert functions to the XML File. Using two third party TinyXML TinyXMLPath libraries. In the project has 4 .cpp library files: tinyxmlerror.cpp , tinyxml2.cpp, tinyxmlparser.cpp, tinydelxml.cpp  and 2 headers: tinystr.h , tinyxml2.h.  Everything else is built according to the basic algorithms for implementing UNDO, REDO via Command. The structure of this program is that any action with the application will be automatically saved in XML File. 
-Implementation of saving changes to a file: with functions I made at xml_codes.cpp. They will be called with UNDO, REDO commands.
+
+Implementation of saving changes to a file: with functions I made at xml_codes.cpp. They will be called with UNDO, REDO commands.Doesn't need to load file before beginning, loading happens automatically in the fxml().
 
 

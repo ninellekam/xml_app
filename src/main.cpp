@@ -13,7 +13,6 @@ int fxml()
     XMLError eResult = xmlDoc.LoadFile("txt.xml");
 
     if (eResult != XML_SUCCESS) return -1;
-
     XMLNode * root = xmlDoc.FirstChildElement("departments");
     if (root == nullptr) return -1;
 
@@ -21,11 +20,10 @@ int fxml()
     {    
         Department dp;
         dp.depName = department->Attribute("name") ; 
-        process.adddprtmnt(dp.depName);
+        process.fadddprtmnt(dp.depName);
 
         XMLNode * employments = department->FirstChildElement("employments");
         Worker wrk;
-        
         for (XMLNode *employment = employments->FirstChildElement();employment!=nullptr;employment=employment->NextSiblingElement())
         {        
             for (XMLElement* element = employment->FirstChildElement() ; element != nullptr ; element = element->NextSiblingElement())
@@ -42,7 +40,7 @@ int fxml()
                     wrk.salary =  atoi(element->GetText()) ;
             }
             dp.addworker(wrk);
-            process.addwrkr(dp.depName,wrk.secondName,
+            process.faddwrkr(dp.depName,wrk.secondName,
             wrk.firstName,
             wrk.middleName,wrk.function,wrk.salary);
         }
@@ -61,14 +59,11 @@ int main()
     com = "go";
     while (com !="EXIT") {
         std::getline(std::cin,com);
-    if (com == "LOAD")
-    //----------------------load file ---------------------------------- 
-        fxml();
-    else if (com == "ADD WRK")
+    if (com == "ADD WRK")
     {
+        fxml();
         std::cout << "Department:"<<std::endl;
         std::getline(std::cin,dep);
-        process.adddprtmnt(dep);
         std::cout << "Surname:"<<std::endl;
         std::getline(std::cin,sn);
         std::cout << "Firstname:"<<std::endl;
@@ -81,9 +76,8 @@ int main()
         std::string sal;
         std::getline(std::cin,sal);
         salary = std::atoi(sal.c_str());
-        fxml();
         process.addwrkr(dep,sn,fn,mn,func,salary);
-        worker_in_xml(dep,sn,fn,mn,func,salary);
+       // process.addwrkr("Системное программирование","gg","h","k","y",7);
     cout <<"---------------------- A D D   W R K -------------------------" << endl;
     }
     else if (com == "ADD DEP")
@@ -92,7 +86,6 @@ int main()
         std::cout << "Department:" << std::endl;
         getline(std::cin,dep);
         process.adddprtmnt(dep);
-        dprmnt_in_xml(dep);
         cout <<"-------------------A D D  D E P ---------------------------" << endl;
     }
     else if (com == "EDIT")

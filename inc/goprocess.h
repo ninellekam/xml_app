@@ -9,10 +9,18 @@ public:
     Command *c;
     Company com;
     void    adddprtmnt(std::string name);
+    void    fadddprtmnt(std::string name);
+
     void    addwrkr(std::string depn,std::string s,
                                     std::string f,
                                     std::string m,
                                     std::string func, int sal);
+    void    faddwrkr(std::string depn,std::string s,
+                                    std::string f,
+                                    std::string m,
+                                    std::string func, int sal);
+
+                                    
 void    delwrkr(std::string depn,std::string s);
 void    deldprtmnt(std::string name);
 void    editwrkr(std::string d,
@@ -22,6 +30,7 @@ void    editwrkr(std::string d,
     std::string func,
     int sal);
 void    chngdprtmntname(std::string name, std::string newname);
+Gopro&  operator =(Gopro &other);
 void    UNDO();
 void    REDO();
 void    print_gopro();

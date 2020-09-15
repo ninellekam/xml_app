@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <departments>
-    <department name="Дизайнерский отдел">
+    <department name="man">
         <employments>
             <employment>
                 <surname>Аверьянов</surname>
@@ -36,6 +36,13 @@
                 <middleName>Викторович</middleName>
                 <function>Дизайнер интерфейса</function>
                 <salary>45000</salary>
+            </employment>
+            <employment>
+                <surname>f</surname>
+                <name>t</name>
+                <middlename>g</middlename>
+                <function>s</function>
+                <salary>0</salary>
             </employment>
         </employments>
     </department>
@@ -95,16 +102,9 @@
     <department name="Системное программирование">
         <employments>
             <employment>
-                <surname/>
+                <surname>Величко</surname>
                 <name>Ольга</name>
                 <middlename>Валерьевна</middlename>
-                <function>Заместитель руководителя отдела</function>
-                <salary>80000</salary>
-            </employment>
-            <employment>
-                <surname>Величко</surname>
-                <name>Максим</name>
-                <middlename>Евгеньевич</middlename>
                 <function>Заместитель руководителя отдела</function>
                 <salary>80000</salary>
             </employment>
@@ -130,11 +130,11 @@
                 <salary>50000</salary>
             </employment>
             <employment>
-                <surname>Емельянов</surname>
-                <name>Дмитрий</name>
-                <middlename>Евгеньевич</middlename>
-                <function>Системный программист Linux</function>
-                <salary>50000</salary>
+                <surname>Васильев</surname>
+                <name>Максим</name>
+                <middlename>Викторович</middlename>
+                <function>Руководитель отдела</function>
+                <salary>100000</salary>
             </employment>
         </employments>
     </department>

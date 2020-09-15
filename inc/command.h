@@ -14,6 +14,7 @@ class Command {
     virtual void redo() = 0;
     virtual void undo() = 0;
     void    set_company(Company *c);
+    Command& operator=(Command &other);
 };
 class Adddep : public Command {
     public:
@@ -22,6 +23,15 @@ class Adddep : public Command {
     void redo();
     void undo();
 };
+
+class Fadddep : public Command {
+    public:
+    std::string name;
+    Fadddep(std::string n);
+    void redo();
+    void undo();
+};
+
 class Deldep: public Command {
     public:
     std::string name;
@@ -45,6 +55,23 @@ class AddWorker : public Command {
     void redo();
     void undo();
 };
+
+class FaddWorker : public Command {
+    public:
+    std::string depn;
+    std::string swrk;
+    std::string fwrk;
+    std::string mwrk;
+    std::string func;
+    int         salary;
+    FaddWorker(std::string d,std::string s,
+    std::string f,
+    std::string m,
+    std::string ff, int sal);
+    void redo();
+    void undo();
+};
+
 class DelWorker : public Command {
     public:
     std::string depn;

@@ -11,11 +11,21 @@ void    Command::set_company(Company *c){
 Adddep::Adddep(std::string n) {name = n;}
 void Adddep::redo() {
         comp->add_department(name);
+        dprmnt_in_xml(name);
     }
 void Adddep::undo() {
         comp->delete_department(name);
         RemoveDepName(name);
     }
+
+Fadddep::Fadddep(std::string n) {name = n;}
+void Fadddep::redo() {
+        comp->add_department(name);
+}
+void Fadddep::undo() {
+        comp->delete_department(name);
+        RemoveDepName(name);
+}
 
 Deldep::Deldep(std::string n) { name = n;}
 void Deldep::redo() {
@@ -38,8 +48,26 @@ AddWorker::AddWorker(std::string d,std::string s, std::string f, std::string m, 
 }
 void AddWorker::redo() {
         comp->add_worker(depn,swrk,fwrk,mwrk,func,salary);
+        worker_in_xml(depn,swrk,fwrk,mwrk,func,salary);
     }
 void AddWorker::undo() {
+       comp->del_worker(depn,swrk);
+       RemoveWorker(depn,swrk,fwrk,mwrk);
+    }
+
+
+FaddWorker::FaddWorker(std::string d,std::string s, std::string f, std::string m, std::string ff, int sal){
+    depn = d; 
+    swrk = s; 
+    fwrk = f; 
+    mwrk = m; 
+    func = ff; 
+    salary = sal;
+}
+void FaddWorker::redo() {
+        comp->add_worker(depn,swrk,fwrk,mwrk,func,salary);
+    }
+void FaddWorker::undo() {
        comp->del_worker(depn,swrk);
        RemoveWorker(depn,swrk,fwrk,mwrk);
     }
@@ -101,3 +129,8 @@ void ChangeDepName::undo(){
     comp->change_department_name(newname, name);
     ChangeDepNameXml(newname, name);
 }
+
+Command& Command::operator= (Command &other) {
+        comp = other.comp;
+        return (*this);
+    }
