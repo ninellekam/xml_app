@@ -65,7 +65,8 @@ void    Company::change_department_name(std::string name, std::string newname){
         {
             Department newdep(it->second);
             newdep.change_department(newname);
-            dpts[name] = newdep;
+            dpts[newname] = newdep;
+            dpts.erase(it);
         }
         else 
             std::logic_error("Already has this dep name: " + newname) ; 

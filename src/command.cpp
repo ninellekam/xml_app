@@ -98,6 +98,6 @@ void ChangeDepName::redo(){
         ChangeDepNameXml(name, newname);
 }
 void ChangeDepName::undo(){
-    comp->change_department_name(name, newname);
+    comp->change_department_name(newname, name);
     ChangeDepNameXml(newname, name);
 }
